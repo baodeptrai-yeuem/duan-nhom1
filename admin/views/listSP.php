@@ -78,9 +78,11 @@
                         <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="?act=deleteSP&id=<?= $rows['id_sanpham']?>" class="btn btn-danger">Xóa</a>
                     </td>
                 </tr>
+            
                 <?php endforeach; ?>
             </tbody>
         </table>
+    
         
         <?php require_once 'khung/footer.php'; ?>
     </div>
