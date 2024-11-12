@@ -53,7 +53,7 @@
                     <a href="#">Nhận diện</a>
                     <a href="#">Giá trị cốt lõi</a>
                     <a href="#">Liên hệ</a>
-                    <a href="#">Liên hệ</a>
+                    
                 </div>
                 <div class="col-md-3 footer-section">
                     <h5>Dịch vụ khách hàng</h5>

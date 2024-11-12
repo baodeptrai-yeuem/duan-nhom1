@@ -76,6 +76,7 @@
                 <a href="#" class="nav-link">Services</a>
                 <a href="#" class="nav-link">Contact</a>
                 <a href="?act=dangky" class="nav-link">dang ký</a>
+                <a href="?act=dangnhap" class="nav-link">dangnhap</a>
             </nav>
             <div class="d-flex align-items-center">
                 <!-- Search -->
