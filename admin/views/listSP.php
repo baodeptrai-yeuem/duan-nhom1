@@ -23,16 +23,18 @@
         .product tbody tr:not(:last-child) {
             border-bottom: 2px solid #dee2e6; /* Thêm đường kẻ dưới mỗi hàng trừ hàng cuối cùng */
         }
-
-
     </style>
 </head>
 <body>
     <div class="theanh">
         <?php require_once 'khung/header.php'; ?>
         
-        <div class="text-right mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="?act=insertproduct" class="btn btn-primary">Thêm sản phẩm</a>
+            <form method="GET" class="form-inline">
+                <input type="text" name="search" class="form-control mr-2" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm">
+                <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
+            </form>
         </div>
         
         <table class="table table-bordered table-striped product">
@@ -51,7 +53,17 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($allProduct as $key => $rows): ?>
+                <?php 
+                $search = isset($_GET['search']) ? $_GET['search'] : '';
+                $filteredProducts = [];
+
+                foreach ($allProduct as $product) {
+                    if (stripos($product['name'], $search) !== false) {
+                        $filteredProducts[] = $product;
+                    }
+                }
+
+                foreach($filteredProducts as $key => $rows): ?>
                 <tr>
                     <td><?= $rows['id_sanpham'] ?></td>
                     <td><?= $rows['name'] ?></td>
