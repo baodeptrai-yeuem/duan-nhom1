@@ -6,6 +6,7 @@ class loginController{
         $this->accModel=new loginModel();
     }
     public function login() {
+        require_once 'views/dangnhap.php';
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -16,7 +17,7 @@ class loginController{
                     // Role 1: Admin
                     $_SESSION['user'] = $user;
                     $_SESSION['role'] = 'admin';
-                    header("Location: /admin/");
+                    header("Location: admin");
                 } else {
                     // Role 0: Người dùng
                     $_SESSION['user'] = $user;
