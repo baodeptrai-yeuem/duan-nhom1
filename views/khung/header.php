@@ -1,113 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webpage Header</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Reset mặc định */
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, a, nav, div, header {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* Header */
         .header {
             max-width: 1920px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         .logo {
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 1.8em;
+            font-weight: 700;
             color: #333;
         }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            margin: 0 20px;
+        }
+
         .nav-link {
-            color: #333 !important;
-        }
-        .nav-link:hover {
-            color: #007bff !important;
-        }
-        .search-box {
-            position: relative;
-        }
-        .search-input {
-            display: none;
-            position: absolute;
-            top: 40px;
-            right: 0; /* Đảm bảo rằng nó xổ sang bên phải */
-            width: 400px; /* Tăng chiều rộng */
-            padding: 10px; /* Tăng padding */
-            margin-top: 5px;
-            background: #fff;
-            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #555;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: color 0.3s, background-color 0.3s;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1000; /* Đảm bảo nó nổi trên các phần tử khác */
         }
+
+        .nav-link:hover {
+            color: #007bff;
+            background-color: #f0f2f5;
+        }
+
+        /* Search bar styles */
+        .search-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            background-color: #f8f9fa;
+            transition: width 0.4s ease;
+            width: 0;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar.expanded {
+            width: 250px;
+        }
+
+        .search-input {
+            border: none;
+            padding: 8px 15px;
+            background: none;
+            outline: none;
+            font-size: 15px;
+            width: 100%;
+            border-radius: 20px;
+        }
+
         .search-icon {
             cursor: pointer;
+            margin-left: 10px;
+            transition: transform 0.2s;
         }
+
+        .search-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
         .dropdown-menu {
+            position: absolute;
+            top: 110%;
             right: 0;
-            left: auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            display: none;
+            min-width: 160px;
+            z-index: 10;
+        }
+
+        .dropdown-item {
+            color: #555;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Icon container */
+        .icon-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .khung {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector('.search-icon').addEventListener('click', function() {
-                var searchInput = document.querySelector('.search-input');
-                if (searchInput.style.display === 'none' || searchInput.style.display === '') {
-                    searchInput.style.display = 'block';
-                    searchInput.focus();
-                } else {
-                    searchInput.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </head>
+
 <body>
     <header class="header">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="logo">
-                My Website
-            </div>
-            <nav class="d-flex align-items-center">
+        <div class="logo">
+            My Website
+        </div>
+        <nav>
+            <div class="khung">
                 <a href="#" class="nav-link">Home</a>
                 <a href="#" class="nav-link">About</a>
                 <a href="#" class="nav-link">Services</a>
-                <a href="#" class="nav-link">Contact</a>
-                <a href="?act=dangky" class="nav-link">dang ký</a>
-                <a href="?act=dangnhap" class="nav-link">dangnhap</a>
-            </nav>
-            <div class="d-flex align-items-center">
-                <!-- Search -->
-                <div class="search-box">
-                    <span class="search-icon">
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/search.png" alt="Search">
-                    </span>
-                    <input type="text" class="search-input form-control" placeholder="Tìm kiếm sản phẩm...">
-                </div>
-                <!-- User Icon -->
-                <div class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/user.png" alt="User">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </div>
-                </div>
-                <!-- Cart Icon -->
-                <a href="#" class="nav-link">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart.png" alt="Cart">
-                </a>
+                <a href="#" class="nav-link">Liên Hệ</a>
+                <a href="?act=dangky" class="nav-link">Đăng ký</a>
+                <a href="?act=dangnhap" class="nav-link">Đăng nhập</a>
+                <a href="?act=dangxuat" class="nav-link">Đăng xuất</a>
             </div>
+        </nav>
+        <div class="icon-container">
+            <!-- Search -->
+            <div class="search-bar" id="searchBar">
+                <input type="text" class="search-input" placeholder="Tìm kiếm...">
+            </div>
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/search.png" alt="Search"
+                class="search-icon" id="searchIcon">
+
+            <!-- User Icon -->
+            <div class="dropdown">
+                <div class="dropdown-toggle" id="userIcon">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/user.png" alt="User">
+                </div>
+                <div class="dropdown-menu" id="userMenu">
+                    <a class="dropdown-item" href="#">Hồ sơ</a>
+                    <a class="dropdown-item" href="#">Cài đặt</a>
+                    <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
+                </div>
+            </div>
+
+            <!-- Cart Icon -->
+            <a href="#" class="nav-link">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart.png" alt="Cart">
+            </a>
         </div>
     </header>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('searchIcon').addEventListener('click', function () {
+            var searchBar = document.getElementById('searchBar');
+            if (searchBar.classList.contains('expanded')) {
+                searchBar.classList.remove('expanded');
+            } else {
+                searchBar.classList.add('expanded');
+            }
+        });
+
+        document.getElementById('userIcon').addEventListener('click', function () {
+            var userMenu = document.getElementById('userMenu');
+            if (userMenu.style.display === 'block') {
+                userMenu.style.display = 'none';
+            } else {
+                userMenu.style.display = 'block';
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            var userIcon = document.getElementById('userIcon');
+            var userMenu = document.getElementById('userMenu');
+            if (!userIcon.contains(event.target) && !userMenu.contains(event.target)) {
+                userMenu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -3,90 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAVANI</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS (if any) -->
-    <link rel="stylesheet" href="../assets/cssheader.css">
-
+    <title>Quản Trị Viên</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .search-bar.expanded {
-            width: 300px; 
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f3f4f6;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+.sidebar {
+    width: 260px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #ffffff;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo h2 {
+    font-size: 24px;
+    color: #ffc107;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .menu li {
+    margin: 15px 0;
+}
+
+.sidebar .menu a {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar .menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffc107;
+}
+
+.sidebar .menu a i {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.logout {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.header input[type="text"] {
+    width: 300px;
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: box-shadow 0.3s;
+}
+
+.header input[type="text"]:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.header button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: -5px;
+}
+
+.header button:hover {
+    background-color: #218838;
+}
+
+.dashboard .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+.stat-item:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item i {
+    font-size: 35px;
+    color: #007bff;
+}
+
+.stat-item div h3 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.stat-item div p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 16px;
+}
+
+.orders {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.order-warning {
+    background-color: #ffe6e6;
+    padding: 15px;
+    border: 1px solid #ff4d4d;
+    border-radius: 8px;
+    color: #ff0000;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
     </style>
 </head>
 <body>
-
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
-
-        <a class="navbar-brand" href="#">
-            <img src="../assets/img/logo.jpg" alt="SAVANI">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="?act=/">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" href="?act=category">Quản lý danh mục</a></li>
-                <li class="nav-item"><a class="nav-link" href="?act=listSP">Quản lý sản phẩm</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Quản lý đơn hàng</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Quản lý tài khoản</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Quản lý bình luận</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Thống kê</a></li>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>ADMIN</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="#"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="?act=category"><i class="fas fa-list"></i> Danh Mục</a></li>
+                <li><a href="#"><i class="fas fa-box"></i> Sản Phẩm</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Đơn Hàng</a></li>
+                <li><a href="#"><i class="fas fa-comment-dots"></i> Phản Hồi</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Tài Khoản</a></li>
+                <li><a href="#"><i class="fas fa-tags"></i> Mã Giảm Giá</a></li>
+                <li><a href="#"><i class="fas fa-images"></i> Slider Shows</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Thống Kê</a></li>
+                <li><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Đăng Xuất</a></li>
             </ul>
+        </aside>
 
-
-            <div class="search-bar" id="searchBar">
-                <input type="text" placeholder="Tìm kiếm">
-            </div>
-
-
-            <div class="navbar-icons d-flex">
-                <a class="nav-link" href="#" id="searchIcon">
-                    <img src="../assets/img/timkiem.png" alt="Tìm kiếm">
-                </a>
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../assets/img/user.png" alt="Người dùng">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <span class="dropdown-item">Xin chào:</span>
-                        <a class="dropdown-item" href="#">Thông tin tài khoản</a>
-                        <a class="dropdown-item" href="#">Trang chủ</a>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
-                    </div>
-                </div>
-                <a class="nav-link" href="#"><img src="../assets/img/giohang.png" alt="Giỏ hàng"></a>
-            </div>
-        </div>
     </div>
-</nav>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-
-    document.getElementById('searchIcon').addEventListener('click', function() {
-        var searchBar = document.getElementById('searchBar');
-        if (searchBar.classList.contains('expanded')) {
-            searchBar.classList.remove('expanded');
-        } else {
-            searchBar.classList.add('expanded');
-        }
-    });
-</script>
-
 </body>
 </html>

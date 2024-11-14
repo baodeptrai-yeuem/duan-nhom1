@@ -64,12 +64,6 @@
                     <a href="#">Chính sách bảo mật</a>
                     <a href="#">Hướng dẫn chọn size</a>
                 </div>
-                <div class="col-md-3 footer-section">
-                    <h5>Đăng ký nhận ưu đãi từ Savani</h5>
-                    <p>Nhận thông tin sản phẩm mới và các chương trình khuyến mãi của Savani</p>
-                    <input type="email" class="form-control" placeholder="Nhập email của bạn">
-                    <button class="btn btn-primary mt-2">Đăng ký</button>
-                </div>
             </div>
             <div class="row mt-4">
                 <div class="col-md-6">

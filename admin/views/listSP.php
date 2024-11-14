@@ -26,8 +26,11 @@
     </style>
 </head>
 <body>
+    <div>
+    <?php require_once 'khung/header.php'; ?>
+    </div>
     <div class="theanh">
-        <?php require_once 'khung/header.php'; ?>
+        
         
         <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="?act=insertproduct" class="btn btn-primary">Thêm sản phẩm</a>
@@ -82,11 +85,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    
-        
-        <?php require_once 'khung/footer.php'; ?>
-    </div>
-
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>

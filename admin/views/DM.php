@@ -7,9 +7,6 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .footer {
-            margin-top: 40%; 
-        }
         .table {
             table-layout: fixed; 
         }
@@ -18,14 +15,25 @@
             text-overflow: ellipsis; 
             white-space: nowrap; 
         }
+        .khung {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="header">
+<div class="khung">
+
+
+<div class="header">
         <?php require_once 'khung/header.php'; ?>
     </div>
+<div class="container-fluid">
+
     <div class="card mt-3">
         <div class="card-header bg-dark text-white">
             <h2 class="text-center">Danh mục sản phẩm</h2>
@@ -62,9 +70,6 @@
         </div>
     </div>
 </div>
-
-<div class="footer" style="margin-top: 20px;">
-    <?php require_once 'khung/footer.php'; ?>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

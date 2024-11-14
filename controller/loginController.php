@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    ob_start();
 require_once 'model/loginModel.php';
 class loginController{
     public $accModel;

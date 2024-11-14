@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    ob_start();
+
     require_once 'controller/loginController.php';
     require_once 'commons/database.php';
     require_once 'controller/productController.php';
@@ -16,5 +15,6 @@
         'sanpham' => (new Controller())->home1(),
         'detailpro' => (new Controller())->detailPro($_GET['id']),
         'dangnhap' => (new loginController())->login(),
+        'dangxuat' => (new loginController())->logout(),
     };
 ?>
