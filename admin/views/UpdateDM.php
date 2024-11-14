@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <?php require_once 'khung/header.php'; ?>
-
+    <div><?php require_once 'khung/header.php'; ?></div>
+<div class="content-area">
 
     <div class="container">
         <div class="card mt-4 mb-4 shadow-sm">
@@ -44,9 +44,7 @@
             </div>
         </div>
     </div>
-
-
-    <?php require_once 'khung/footer.php'; ?>
+</div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

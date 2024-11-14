@@ -71,11 +71,11 @@ function findProductById($id){
     $stmt = $this->conn->prepare($sql);
     return $stmt->execute();
 }
-function updateProduct($id, $name, $img, $price, $description, $quantity, $view, $cate_id) {
+function updateProduct($id, $name, $img, $price, $description, $quantity, $cate_id) {
     if(empty($img)) {
-        $sql = "UPDATE sanpham SET name='$name', price=$price, description='$description', quantity=$quantity, view=$view, id_cate=$cate_id WHERE id_sanpham=$id";
+        $sql = "UPDATE sanpham SET name='$name', price=$price, description='$description', quantity=$quantity, id_cate=$cate_id WHERE id_sanpham=$id";
     } else {
-        $sql = "UPDATE sanpham SET name='$name', image='$img', price=$price, description='$description', quantity=$quantity, view=$view, id_cate=$cate_id WHERE id_sanpham=$id";
+        $sql = "UPDATE sanpham SET name='$name', image='$img', price=$price, description='$description', quantity=$quantity, id_cate=$cate_id WHERE id_sanpham=$id";
     }
     $stmt = $this->conn->prepare($sql);
     return $stmt->execute();

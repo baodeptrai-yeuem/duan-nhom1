@@ -87,7 +87,6 @@ class productController{
             $price = $_POST['price'];
             $detail = $_POST['description'];
             $quantity = $_POST['quantity'];
-            $view = $_POST['view'];
             $cate_id = $_POST['cate'];
     
             if(empty($_FILES['img']['name'])){
@@ -98,7 +97,7 @@ class productController{
                 move_uploaded_file($tmp, '../assets/img/'.$img);
             }
     
-            if($this->productModel->updateProduct($id, $name, $img, $price, $detail, $quantity, $view, $cate_id)){
+            if($this->productModel->updateProduct($id, $name, $img, $price, $detail, $quantity,  $cate_id)){
                 header("location:?act=listSP");
             } else {
                 echo "Lỗi";

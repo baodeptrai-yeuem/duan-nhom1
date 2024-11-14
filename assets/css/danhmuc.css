@@ -1,0 +1,44 @@
+.table {
+    table-layout: fixed; 
+}
+.table th, .table td {
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+.khung {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.card-header h2{
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.card-body {
+    padding: 20px;
+    
+}
+
+.btn {
+    margin: 5px;
+}
+
+.content-area {
+    margin-left: 250px;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.text-left {
+    text-align: left;
+}
+
+.text-left a {
+    margin-left: 0;
+}

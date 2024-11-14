@@ -6,25 +6,29 @@
     <title>Document</title>
     <style>
 
-.khung {
+/* .khung {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+} */
+
+.main-content{
+
 }
 
     </style>
 </head>
 <body>
-    <div class="khung">    
-    <?php require_once 'views/khung/header.php'; ?>
+<?php require_once 'views/khung/header.php'; ?>
+<div class="content-area">
+
     <div class="wrapper">
         <h1>
         Trang quản trị website
         </h1>
     </div>  
-    </div>
-
+    </div>  
 </body>
 </html>

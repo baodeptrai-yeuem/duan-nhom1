@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm danh mục sản phẩm</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="theanh">
-
-        <?php require_once 'khung/header.php'; ?>
+<div><?php require_once 'khung/header.php'; ?></div>
+    <div class="content-area">
 
 
         <div class="container my-4">
@@ -38,10 +36,7 @@
         </div>
 
 
-        <?php require_once 'khung/footer.php'; ?>
-    </div>
-
-
+</div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
