@@ -147,59 +147,39 @@
     </div>
 
     <script>
-        // Hàm kiểm tra form
         function validateForm() {
             let isValid = true;
-
-            // Xóa thông báo lỗi cũ
             document.querySelectorAll('.error-message').forEach(function(errorElement) {
                 errorElement.textContent = '';
             });
-
-            // Lấy các giá trị input
             const name = document.querySelector('input[name="name"]').value.trim();
             const price = document.querySelector('input[name="price"]').value.trim();
             const description = document.querySelector('input[name="description"]').value.trim();
             const quantity = document.querySelector('input[name="quantity"]').value.trim();
             const cate = document.querySelector('select[name="cate"]').value.trim();
-
-            // Kiểm tra Tên sản phẩm
             if (!name) {
                 document.getElementById("name-error").textContent = "Vui lòng nhập tên sản phẩm.";
                 isValid = false;
             }
-
-            // Kiểm tra Giá sản phẩm
             if (!price || isNaN(price) || price <= 0) {
                 document.getElementById("price-error").textContent = "Vui lòng nhập giá sản phẩm hợp lệ.";
                 isValid = false;
             }
-
-            // Kiểm tra Chi tiết sản phẩm
             if (!description) {
                 document.getElementById("description-error").textContent = "Vui lòng nhập chi tiết sản phẩm.";
                 isValid = false;
             }
-
-            // Kiểm tra Số lượng
             if (!quantity || isNaN(quantity) || quantity <= 0) {
                 document.getElementById("quantity-error").textContent = "Vui lòng nhập số lượng hợp lệ.";
                 isValid = false;
             }
-
-            // Kiểm tra Danh mục sản phẩm
             if (!cate) {
                 document.getElementById("cate-error").textContent = "Vui lòng chọn danh mục sản phẩm.";
                 isValid = false;
             }
-
-            // Trả về kết quả
             return isValid;
         }
-
-        // Thêm sự kiện submit cho form
         document.querySelector('.insert').addEventListener('submit', function(event) {
-            // Nếu không hợp lệ, ngừng gửi form
             if (!validateForm()) {
                 event.preventDefault();
             }
