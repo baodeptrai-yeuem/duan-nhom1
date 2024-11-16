@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    ob_start();
+
 require_once 'model/loginModel.php';
 class loginController{
     public $accModel;
@@ -9,33 +8,26 @@ class loginController{
     }
     public function login() {
         require_once 'views/dangnhap.php';
-        if (isset($_POST['username']) && isset($_POST['password'])) {
+        if (isset($_POST['btn_login'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $user = $this->accModel->checkAcc($username, $password);
 
+            
             if ($user) {
-                if ($user['role'] == 1) {
-                    // Role 1: Admin
-                    $_SESSION['user'] = $user;
-                    $_SESSION['role'] = 'admin';
-                    header("Location: admin");
-                } else {
-                    // Role 0: Người dùng
-                    $_SESSION['user'] = $user;
-                    $_SESSION['role'] = 'user';
-                    header("Location: ?act=/");
-                }
+                $_SESSION['username'] = $user;
+                $_SESSION['role'] = $this->accModel->Role($username);
+                header("location:./");
+                var_dump($_SESSION['role']);
             } else {
                 echo "Sai tên đăng nhập hoặc mật khẩu";
             }
-        } else {
-            echo "Vui lòng điền tên đăng nhập và mật khẩu.";
         }
     }
+   
     
     function logout(){
-        unset($_SESSION['user']);
-        header('location: ../?act=/');
+        unset($_SESSION['username']);
+        header('location:./');
     }
 }

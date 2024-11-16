@@ -1,5 +1,6 @@
 <?php
-
+    session_start();
+    ob_start();
     require_once 'controller/loginController.php';
     require_once 'commons/database.php';
     require_once 'controller/productController.php';

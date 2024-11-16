@@ -157,9 +157,26 @@
                 <a href="#" class="nav-link">About</a>
                 <a href="#" class="nav-link">Services</a>
                 <a href="#" class="nav-link">Liên Hệ</a>
+                <?php
+                    if(isset($_SESSION['username'])){
+                        if($_SESSION['role'] == 1){
+                            
+                ?> 
+                <a href="admin" class="nav-link">vao trang admin</a>
+                <?php
+                }
+                ?>
+                <a href="?act=dangxuat" class="nav-link">Đăng xuất</a>
+                <?php
+                }else{
+                ?>    
                 <a href="?act=dangky" class="nav-link">Đăng ký</a>
                 <a href="?act=dangnhap" class="nav-link">Đăng nhập</a>
-                <a href="?act=dangxuat" class="nav-link">Đăng xuất</a>
+                <?php
+                }
+                ?>
+
+                
             </div>
         </nav>
         <div class="icon-container">
