@@ -37,14 +37,20 @@ class Model {
     function getProfileByUsername($username){
         return $this->conn->query("SELECT * FROM user WHERE username='$username'")->fetch();
     }
-    
-    function getpassByusername($username){
-        $sql = "SELECT password FROM user WHERE username = '$username'";
-        $stmt = $this -> conn -> prepare($sql);
-        return $stmt->fetch();
+
+    function checkOldPass($username,$mkcu){
+        $sql="SELECT password FROM user where username='$username'";
+        $checkPass = $this->conn->prepare($sql);
+        $checkPass->execute();
+        $result = $checkPass->fetch();
+        if ($result && $result['password'] === $mkcu) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    function updatePass($username, $newPass){
-        $sql = "UPDATE user set password = '$newPass' WHERE username = '$username'";
+    function updatePass($username, $mkmoi){
+        $sql = "UPDATE user set password = '$mkmoi' WHERE username = '$username'";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute();
     }

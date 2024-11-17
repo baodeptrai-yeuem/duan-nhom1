@@ -195,6 +195,7 @@
                                 <?php
                             }
                             ?>
+                            <a class="dropdown-item" href="?act=changePass">doi mk</a>
                             <a class="dropdown-item" href="#">Giỏ Hàng</a>
                             <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
                             <?php

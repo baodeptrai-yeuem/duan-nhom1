@@ -51,31 +51,27 @@ class Controller {
 
 
     function changePass(){
-        require_once 'views/profile.php'; 
-        if (isset($_POST['btn_updatemk'])) {  
-            $mkcu = $_POST['mkcu'];
-            $mkmoi = $_POST['mkmoi'];
-            $nhaplaimk = $_POST['nhaplaimk'];
-            $username = $_SESSION['username'];
-    
-          
-            if ($mkmoi !== $nhaplaimk) {
-                echo "Mật khẩu mới và mật khẩu xác nhận không khớp";  
-                return;
-            }
-    
-            $user = $this->homeModel->getpassByusername($username);
-            
-            if ($user && $mkcu === $user['password']) { 
-                $upNewPass = $mkmoi;  
-    
-                if ($this->homeModel->updatePass($username, $upNewPass)) {
-                    echo "Mật khẩu đã được thay đổi thành công"; 
-                } else {
-                    echo "Thay đổi mật khẩu thất bại"; 
+        require_once 'views/doimk.php'; 
+        if(isset($_SESSION['username']['username'])){
+            $username = $_SESSION['username']['username'];
+            if (isset($_POST['btn_updatemk'])) {  
+                $mkcu = $_POST['mkcu'];
+                $mkmoi = $_POST['mkmoi'];
+                $nhaplaimk = $_POST['nhaplaimk'];
+
+                if($this->homeModel->checkOldPass($username,$mkcu)){
+                    if($nhaplaimk == $mkmoi){
+                        if($this->homeModel->updatePass($username,$mkmoi)){
+                            echo "doi mk x";
+                        }else{
+                            echo "loi";
+                        }
+                    }else{
+                        echo "mat khau deo trung";
+                    }
+                }else{
+                    echo "mk cu k chinh xac";
                 }
-            } else {
-                echo "Mật khẩu hiện tại không đúng"; 
             }
         }
     }
