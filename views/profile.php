@@ -173,6 +173,16 @@ body {
     text-align: left;
 }
 
+/* Thêm margin-top cho phần Đổi Mật Khẩu */
+.main-content h3 {
+    margin-top: 30px;  /* Để cách phần trước của form */
+}
+
+.form-group.password-group {
+    margin-top: 30px;  /* Cách phần "Thông tin người dùng" */
+}
+
+
     </style>
 </head>
 <body>
@@ -212,7 +222,7 @@ body {
         <form action="" method="post">
             <div class="form-group">
                 <label for="username">Tên đăng nhập:</label>
-                <input type="text" id="username" name="username" value="<?= $show['username'] ?>" required>
+                <input type="text" id="username" name="username" value="<?= $show['username'] ?>" readonly>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -220,7 +230,7 @@ body {
             </div>
             <div class="form-group">
                 <label for="phone">Số điện thoại:</label>
-                <input type="tel" id="phone" name="phone" value="<?= $show['phone'] ?>"required>
+                <input type="tel" id="phone" name="phone" value="<?= $show['phone'] ?>" required>
             </div>
             <div class="form-group">
                 <label for="address">Địa chỉ:</label>
@@ -229,8 +239,25 @@ body {
             <div class="form-actions">
                 <button type="submit" name="btn_update">LƯU</button>
             </div>
+
+            <h3>Đổi Mật Khẩu</h3>
+            <div class="form-group password-group">
+                <label for="current_password">Mật khẩu hiện tại:</label>
+                <input type="password" id="current_password" name="mkcu" required>
+            </div>
+            <div class="form-group">
+                <label for="new_password">Mật khẩu mới:</label>
+                <input type="password" id="new_password" name="mkmoi" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Xác nhận mật khẩu mới:</label>
+                <input type="password" id="confirm_password" name="nhaplaimk" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" name="btn_updatemk">LƯU</button>
+            </div>
         </form>
-    </div>
 </div>
 
 </body>

@@ -56,6 +56,20 @@ class Controller {
         require_once 'views/profile.php';
     }
 
+    function changePass(){
+        if(isset($_POST['btn_updatemk'])){
+            $mkcu = $_POST['mkcu'];
+            $mkmoi = $_POST['mkmoi'];
+            $nhaplaimk = $_POST['nhaplaimk'];
+            $username = $_SESSION['username']; 
+        }
+
+        if($mkmoi !== $nhaplaimk){
+            echo ("mat khau k trung khop")
+            return;
+        }
+    }
+
     
 
 

@@ -19,7 +19,7 @@ class Model {
     }
 
     function updateProfile($username, $email, $phone, $address){
-        $sql = "UPDATE user SET email = '$email', phone = '$phone', address = '$address' WHERE username = $username";
+        $sql = "UPDATE user SET email = '$email', phone = '$phone', address = '$address' WHERE username = '$username'";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute();
     }
@@ -38,6 +38,16 @@ class Model {
         return $this->conn->query("SELECT * FROM user WHERE username='$username'")->fetch();
     }
     
+    function getpassByusername($username){
+        $sql = "SELECT password FROM user WHERE username = '$username'";
+        $stmt = $this -> conn -> prepare($sql);
+        return $stmt->fetch();
+    }
+    function updatePass($username, $newPass){
+        $sql = "UPDATE user set password = '$newPass' WHERE username = '$username'";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute();
+    }
 
     
 
