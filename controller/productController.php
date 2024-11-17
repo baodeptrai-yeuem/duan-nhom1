@@ -50,23 +50,33 @@ class Controller {
     }
 
 
-    function showProfile()
-    {
-        $profile = $this->homeModel->showProfile();
-        require_once 'views/profile.php';
-    }
-
     function changePass(){
-        if(isset($_POST['btn_updatemk'])){
+        require_once 'views/profile.php'; 
+        if (isset($_POST['btn_updatemk'])) {  
             $mkcu = $_POST['mkcu'];
             $mkmoi = $_POST['mkmoi'];
             $nhaplaimk = $_POST['nhaplaimk'];
-            $username = $_SESSION['username']; 
-        }
-
-        if($mkmoi !== $nhaplaimk){
-            echo ("mat khau k trung khop")
-            return;
+            $username = $_SESSION['username'];
+    
+          
+            if ($mkmoi !== $nhaplaimk) {
+                echo "Mật khẩu mới và mật khẩu xác nhận không khớp";  
+                return;
+            }
+    
+            $user = $this->homeModel->getpassByusername($username);
+            
+            if ($user && $mkcu === $user['password']) { 
+                $upNewPass = $mkmoi;  
+    
+                if ($this->homeModel->updatePass($username, $upNewPass)) {
+                    echo "Mật khẩu đã được thay đổi thành công"; 
+                } else {
+                    echo "Thay đổi mật khẩu thất bại"; 
+                }
+            } else {
+                echo "Mật khẩu hiện tại không đúng"; 
+            }
         }
     }
 

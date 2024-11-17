@@ -18,5 +18,6 @@
         'dangnhap' => (new loginController())->login(),
         'dangxuat' => (new loginController())->logout(),
         'profile' => (new Controller())->profile(),
+        'changePass' => (new Controller())->changePass(),
     };
 ?>
