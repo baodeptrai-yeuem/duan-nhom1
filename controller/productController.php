@@ -32,6 +32,30 @@ class Controller {
             }
         }
     }
+
+    function profile(){
+        
+        $show = $this->homeModel->getProfileByUsername($_SESSION['username']['username']);
+        if(isset($_POST['btn_update'])){
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $address = $_POST['address'];
+            if($this->homeModel->updateProfile($_SESSION['username']['username'], $email, $phone, $address)){
+                header("location:?act=profile");
+            }else{
+                echo "loi";
+            }
+        }
+        require_once 'views/profile.php';
+    }
+
+
+    function showProfile()
+    {
+        $profile = $this->homeModel->showProfile();
+        require_once 'views/profile.php';
+    }
+
     
 
 

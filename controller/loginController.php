@@ -16,7 +16,7 @@ class loginController{
             
             if ($user) {
                 $_SESSION['username'] = $user;
-                $_SESSION['role'] = $this->accModel->Role($username);
+                $_SESSION['role'] = $this->accModel->Role($username)['role'];
                 header("location:./");
                 var_dump($_SESSION['role']);
             } else {
@@ -24,6 +24,7 @@ class loginController{
             }
         }
     }
+
    
     
     function logout(){

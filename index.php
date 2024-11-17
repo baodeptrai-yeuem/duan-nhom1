@@ -17,5 +17,6 @@
         'detailpro' => (new Controller())->detailPro($_GET['id']),
         'dangnhap' => (new loginController())->login(),
         'dangxuat' => (new loginController())->logout(),
+        'profile' => (new Controller())->profile(),
     };
 ?>

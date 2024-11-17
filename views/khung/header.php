@@ -157,25 +157,6 @@
                 <a href="#" class="nav-link">About</a>
                 <a href="#" class="nav-link">Services</a>
                 <a href="#" class="nav-link">Liên Hệ</a>
-                <?php
-                    if(isset($_SESSION['username'])){
-                        if($_SESSION['role'] == 1){
-                            
-                ?> 
-                <a href="admin" class="nav-link">vao trang admin</a>
-                <?php
-                }
-                ?>
-                <a href="?act=dangxuat" class="nav-link">Đăng xuất</a>
-                <?php
-                }else{
-                ?>    
-                <a href="?act=dangky" class="nav-link">Đăng ký</a>
-                <a href="?act=dangnhap" class="nav-link">Đăng nhập</a>
-                <?php
-                }
-                ?>
-
                 
             </div>
         </nav>
@@ -189,17 +170,44 @@
 
             <!-- User Icon -->
             <div class="dropdown">
+             <?php
+                if(isset($_SESSION['username'])){
+             ?>
+                <div class="dropdown-toggle" id="userIcon">
+                    <img src="assets/img/user.png" width="25px" height="30px" alt="User">
+                </div>
+             <?php
+                }else{
+             ?>
+            
                 <div class="dropdown-toggle" id="userIcon">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/user.png" alt="User">
                 </div>
+            <?php
+            }
+            ?>
                 <div class="dropdown-menu" id="userMenu">
-                    <a class="dropdown-item" href="#">Hồ sơ</a>
-                    <a class="dropdown-item" href="#">Cài đặt</a>
-                    <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
+                    <?php
+                        if (isset($_SESSION['username'])) {?>
+                            <a class="dropdown-item" href="?act=profile">Thông tin cá nhân</a>
+                            <?php if ($_SESSION['role'] == 1) { ?>                         
+                            <a href="admin" class="dropdown-item">Vào trang admin</a>
+                                <?php
+                            }
+                            ?>
+                            <a class="dropdown-item" href="#">Giỏ Hàng</a>
+                            <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="?act=dangky" class="dropdown-item">Đăng ký</a>
+                            <a href="?act=dangnhap" class="dropdown-item">Đăng nhập</a>
+                            <?php
+                        }
+                    ?>
+
                 </div>
             </div>
-
-            <!-- Cart Icon -->
             <a href="#" class="nav-link">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart.png" alt="Cart">
             </a>

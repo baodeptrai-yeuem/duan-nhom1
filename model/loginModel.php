@@ -12,7 +12,7 @@
 
         function Role($username) {
             $sql = "SELECT role from user WHERE username = '$username'";
-            $stsm=$this->conn->prepare($sql);
-            return $stsm->execute();
+            $stsm=$this->conn->query($sql);
+            return $stsm->fetch();
         }
 }
