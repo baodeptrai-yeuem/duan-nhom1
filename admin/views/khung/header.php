@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bảng điều khiển quản trị</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/cssheader.css">
+    <link rel="stylesheet" href="../assets/cssadmin/cssheader.css">
     <style>
         
     </style>
@@ -19,6 +19,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hồ sơ</a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cài đặt</a>
@@ -35,10 +36,10 @@
                 <a class="nav-link active" href="?act=/">Trang Chủ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="?act=category">Danh mục</a>
+                <a class="nav-link" href="?act=category">Quản lý danh mục</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="?act=listSP">Sản phẩm</a>
+                <a class="nav-link" href="?act=listSP">Quản lý sản phẩm</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Đơn Hàng</a>
@@ -47,7 +48,7 @@
                 <a class="nav-link" href="#">Phản Hồi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Tài khoản</a>
+                <a class="nav-link" href="?act=maganetk">Quản lý tài khoản</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Mã Giảm Giá</a>
@@ -67,8 +68,9 @@
                 <div class="stat-item">
                     <i class="fas fa-user"></i>
                     <div>
-                        <h3>0</h3>
+                        <h3><?= $so['soluongtk']; ?></h3>
                         <p>Tài khoản</p>
+                        <a href="?act=maganetk"><img src="../assets/img/iconlogo.png" width="60" height="70" alt=""></a>
                     </div>
                 </div>
                 <div class="stat-item">
