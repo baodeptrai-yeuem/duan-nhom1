@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh mục sản phẩm</title>
-    <link rel="stylesheet" href="../assets/css/danhmuc.css">
+    <link rel="stylesheet" href="../assets/cssadmin/danhmuc.css">
 </head>
 <body>
 
