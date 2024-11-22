@@ -1,96 +1,327 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slideshow</title>
-    <style>
-        .slideshow-container {
-            position: relative;
-            max-width: 1920px;
-            max-height: 1080px;
-            margin: auto;
-            overflow: hidden;
-        }
-        .slides {
-            display: none;
-            width: 100%;
-            height: 60%;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .slides img {
-            width: 100%;
-            height: 60%;
-            object-fit: cover;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-    </style>
-</head>
-<body>
-    <div class="">
-        <?php require_once 'views/khung/header.php'; ?>
+<!DOCTYPE html><html lang="en"><head id="Head1" prefix="og: http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article#">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <meta http-equiv="Cache-control" content="public">
+            <title>SAVANI - Thương hiệu thời trang nam, nữ, trẻ em chất lượng</title>
+            <meta name="keywords" content="Savani">
+            <meta name="description" content="SAVANI -  Thương hiệu thời trang chất lượng, uy tín. Hệ thống 76 cửa h�&nbsp;ng. Sản phẩm đa dạng, tính ứng dụng cao, giá tốt">
+            <link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/home.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/owl.carousel.min.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/banner_slide.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/flash.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/home_1.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/font-awesome.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/mmenu.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/style.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/styles.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/menu_footer.css"> 
+
+    <header>
+            <?php require_once 'views/khung/header.php'; ?>
+    </header>
+    <div class="block-menu-pro bottom">
     </div>
-        
-    <div class="slideshow-container">
-        <div class="slides fade">
-            <img src="./assets/img/banner1.webp" alt="Hình 1">
+    
+<div id="main" class="main_home">
+
+    <div class="slideshow">
+        <style>
+ #bannerHome .item a {
+        width: 100%;
+    }
+    html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.chan-trang {
+    height: 100px;
+    margin-top: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.khu-vuc {
+    max-width: 1200px;
+    flex: 1;
+    margin: 0 auto;
+    padding: 20px;
+    min-width: auto;
+}
+
+.phan-tieu-de {
+    position: relative;
+    margin: 40px 0 20px;
+    text-align: left;
+}
+
+.phan-tieu-de h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    display: inline-block;
+}
+
+.phan-tieu-de .gach-chan {
+    margin-top: 8px;
+    width: 120pxpx;
+    height: 3px;
+    background-color: #808080;
+    border-radius: 2px;
+}
+
+.noi-dung-chinh {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+.khu-vuc-container{
+    
+    width: 1800px;
+    
+}
+
+.banner {
+    flex: 1.2;
+    max-width: 370px;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.khu-vuc-san-pham {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.the-san-pham {
+    height: 500px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.the-san-pham:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hinh-anh-san-pham {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.thong-tin-san-pham {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.ten-san-pham {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.gia-san-pham {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.tin-tuc {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.tieu-de {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dong-ke {
+    width: 50px;
+    height: 3px;
+    background-color: #FF5733;
+    margin-bottom: 20px;
+}
+
+.danh-sach-tin {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.bai-viet {
+    width: 30%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+}
+
+.bai-viet img {
+    width: 100%;
+    height: auto;
+}
+
+.bai-viet h3 {
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+}
+
+.bai-viet .ngay-thang {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+
+</style>
+
+<div id="bannerHome" class="owl-carousel owl-theme">
+            <div class="item">
+            <a href="">
+                                    <img src="assets/csstrangchu/images/black-friday_banner-1920x680-min_1731577366.webp" alt="CTKM 15/2" class="img-responsive">
+                            </a>
         </div>
-        <div class="slides fade">
-            <img src="./assets/img/banner2.webp" alt="Hình 2">
+    </div>    </div>
+    <div class="noi-dung-chinh">
+    <div class="khu-vuc-container">
+
+        <div class="phan-tieu-de">
+            <h1>Áo Pô lô</h1>
+            <div class="gach-chan"></div>
         </div>
-        <div class="slides fade">
-            <img src="./assets/img/banner3.webp" alt="Hình 3">
+        <div class="noi-dung-chinh">
+            <div class="banner">
+                <img src="assets/csstrangchu/images/banner2-01_1728533561_1.webp" alt="Hình Banner">
+            </div>
+            <div class="khu-vuc-san-pham">
+            <?php foreach($sanpham as $row){ ?>
+                <div class="the-san-pham">
+                    <img src="assets/csstrangchu/images/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
+                    <div class="thong-tin-san-pham">
+                        <div class="ten-san-pham"><?= $row['name'] ?></div>
+                        <div class="gia-san-pham"><?= $row['price'] ?>đ</div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
         </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="phan-tieu-de">
+            <h1>Áo Thun</h1>
+            <div class="gach-chan"></div>
+        </div>
+        <div class="noi-dung-chinh">
+            <div class="banner">
+                <img src="assets/csstrangchu/images/banner2-01_1728533561_1.webp" alt="Hình Banner">
+            </div>
+            <div class="khu-vuc-san-pham">
+            <?php foreach($sanpham as $row){ ?>
+                <div class="the-san-pham">
+                    <img src="assets/csstrangchu/images/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
+                    <div class="thong-tin-san-pham">
+                        <div class="ten-san-pham"><?= $row['name'] ?></div>
+                        <div class="gia-san-pham"><?= $row['price'] ?>đ</div>
+                    </div>
+                </div>
+                <?php } ?> 
+            </div>
+        </div>
+        <div class="phan-tieu-de">
+            <h1>Áo Sơ mi</h1>
+            <div class="gach-chan"></div>
+        </div>
+        <div class="noi-dung-chinh">
+            <div class="banner">
+                <img src="assets/csstrangchu/images/banner2-01_1728533561_1.webp" alt="Hình Banner">
+            </div>
+            <div class="khu-vuc-san-pham">
+                <?php foreach($sanpham as $row){?>
+                    <div class="the-san-pham">
+                        <img src="assets/csstrangchu/images/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
+                        <div class="thong-tin-san-pham">
+                            <div class="ten-san-pham"><?= $row['name'] ?></div>
+                            <div class="gia-san-pham"><?= $row['price'] ?>đ</div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+            <div class="phan-tieu-de">
+                <h1>Áo Sơ mi</h1>
+                <div class="gach-chan"></div>
+            </div>
+            <div class="danh-sach-tin">
+            <div class="bai-viet">
+                <img src="assets/images/classic-style.jpg" alt="Classic style" />
+                <h3>Classic style là gì? Xu hướng phối đồ đầy sang trọng - cuốn hút</h3>
+                <p class="ngay-thang">16/11/2024</p>
+            </div>
+            <div class="bai-viet">
+                <img src="assets/images/phoi-ao-len.jpg" alt="Phối áo len nam" />
+                <h3>10+ cách phối áo len nam mùa đông cực sành điệu - ấm áp 2024</h3>
+                <p class="ngay-thang">09/11/2024</p>
+            </div>
+            <div class="bai-viet">
+                <img src="assets/images/mau-hop-menh.jpg" alt="1980 mệnh gì" />
+                <h3>1980 mệnh gì hợp màu gì? Nên mặc gì để thu hút tài lộc?</h3>
+                <p class="ngay-thang">24/10/2024</p>
+            </div>
     </div>
-        
-    <div class="">
+</div>
+
+    </div>
+</div>
+<footer class="footer">
         <?php require_once 'views/khung/footer.php'; ?>
-    </div>
+</footer>
+</script>
 
-    <script>
-        let slideIndex = 0;
-        showSlides();
 
-        function showSlides() {
-            let slides = document.getElementsByClassName("slides");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            slides[slideIndex - 1].style.display = "block";  
-            slides[slideIndex - 1].style.opacity = "1";
-            setTimeout(showSlides, 3000); // Thay đổi hình ảnh mỗi 3 giây
-        }
 
-        function plusSlides(n) {
-            slideIndex += n - 1; // Điều chỉnh chỉ số slide
-            if (slideIndex >= document.getElementsByClassName("slides").length) {slideIndex = 0}
-            if (slideIndex < 0) {slideIndex = document.getElementsByClassName("slides").length - 1}
-            showSlides();
-        }
-    </script>
-</body>
-</html>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/default_1.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/slide.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/owl.carousel.min.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/flash.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/default.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/bootstrap.min.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/form.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/mmenu.polyfills.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/mmenu.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/jquery.autocomplete.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/jquery.sticky.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/templates.js"></script>
+<script language="javascript" type="text/javascript" src="assets/csstrangchu/js/styles.js"></script>
+
+        <script src="js/tracking.min.js"></script> <script type="text/javascript">
+            AT.init({"campaign_id":3338, "is_reoccur": 1,"is_lastclick":1, "cookie_duration": 15})
+            AT.track();
+        </script> 
+        </body></html>

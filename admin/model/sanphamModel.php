@@ -44,17 +44,18 @@ class sanphamModel{
         function cateName($id){
             $sql="select * from danhmuc where id_danhmuc=$id";
             return $this->conn->query($sql)->fetch();
+        }
     
 
 
-    function insertProduct($name, $img, $price, $description, $quantity, $view, $cate_id) {
-        $sql = "INSERT INTO sanpham (name, image, price, description, quantity, view, id_cate) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id]);
-    }
-    // quản lý tài khoản
+        function insertProduct($name, $img, $price, $description, $quantity, $view, $cate_id) {
+            $sql = "INSERT INTO sanpham (name, image, price, description, quantity, view, id_cate) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->conn->prepare($sql);
+            return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id]);
+        }
+        // quản lý tài khoản
 
 
-}}
+}
 ?>

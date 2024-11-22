@@ -27,8 +27,8 @@ class sanphamController{
     
         if(isset($_POST['btn_update'])){
             $oneProduct = $this->sanphamModel->findProductById($id);
-            $cateProduct = $this->danhmucModel->cateProduct();
-            $cateName = $this->danhmucModel->cateName($oneProduct['id_cate']);
+            $cateProduct = $this->sanphamModel->cateProduct();
+            $cateName = $this->sanphamModel->cateName($oneProduct['id_cate']);
             $id = $_POST['id'];
             $name = $_POST['name'];
             $price = $_POST['price'];

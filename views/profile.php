@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<!DOCTYPE html><html lang="en"><head id="Head1" prefix="og: http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article#">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <meta http-equiv="Cache-control" content="public">
+            <title>SAVANI - Thương hiệu thời trang nam, nữ, trẻ em chất lượng</title>
+            <meta name="keywords" content="Savani">
+            <meta name="description" content="SAVANI -  Thương hiệu thời trang chất lượng, uy tín. Hệ thống 76 cửa h�&nbsp;ng. Sản phẩm đa dạng, tính ứng dụng cao, giá tốt">
+            <link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/home.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/owl.carousel.min.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/banner_slide.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/flash.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/home_1.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/font-awesome.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/mmenu.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/style.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/styles.css"> 
+<link rel="stylesheet" type="text/css" media="screen" href="assets/csstrangchu/css/menu_footer.css"> 
     <style>
-        /* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.a{
-    width: 1920px;
-}
-
 body {
-    background-color: #f9fafb;
     color: #333;
     line-height: 1.6;
-    width: 1920px;
+    width: 100%;
 }
-.breadcrumb {
+
+.duong-dan {
     margin: 20px;
     font-size: 14px;
     color: #6c757d;
@@ -31,22 +31,22 @@ body {
     border-radius: 5px;
 }
 
-.breadcrumb a {
+.duong-dan a {
     color: #007bff;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.breadcrumb a:hover {
+.duong-dan a:hover {
     color: #0056b3;
 }
 
-.container {
+.khung-chua {
     display: flex;
     margin: 20px;
 }
 
-.sidebar {
+.thanh-ben {
     width: 250px;
     background-color: #ffffff;
     padding: 20px;
@@ -55,24 +55,24 @@ body {
     margin-right: 20px;
 }
 
-.sidebar h3 {
+.thanh-ben h3 {
     font-size: 20px;
     margin-bottom: 20px;
     color: #333;
     font-weight: 600;
 }
 
-.sidebar ul {
+.thanh-ben ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.sidebar ul li {
+.thanh-ben ul li {
     margin-bottom: 15px;
 }
 
-.sidebar ul li strong {
+.thanh-ben ul li strong {
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
@@ -80,7 +80,7 @@ body {
     font-weight: 600;
 }
 
-.sidebar ul li a {
+.thanh-ben ul li a {
     text-decoration: none;
     color: #333;
     font-size: 14px;
@@ -91,18 +91,17 @@ body {
     cursor: pointer;
 }
 
-.sidebar ul li a:hover {
+.thanh-ben ul li a:hover {
     background-color: #e9ecef;
     color: #007bff;
 }
 
-.sidebar ul li a:active {
+.thanh-ben ul li a:active {
     background-color: #d1ecf1;
     color: #0056b3;
 }
 
-/* Main Content */
-.main-content {
+.noi-dung-chinh {
     flex-grow: 1;
     background-color: #ffffff;
     padding: 30px;
@@ -110,7 +109,7 @@ body {
     border-radius: 10px;
 }
 
-.main-content h2 {
+.noi-dung-chinh h2 {
     text-align: left;
     margin-bottom: 20px;
     color: #333;
@@ -118,12 +117,11 @@ body {
     font-weight: bold;
 }
 
-/* Form styling */
-.form-group {
+.nhom-form {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.nhom-form label {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
@@ -131,7 +129,7 @@ body {
     font-size: 14px;
 }
 
-.form-group input {
+.nhom-form input {
     width: 100%;
     padding: 12px;
     border: 1px solid #dee2e6;
@@ -140,17 +138,17 @@ body {
     transition: border-color 0.3s;
 }
 
-.form-group input:focus {
+.nhom-form input:focus {
     border-color: #80bdff;
     outline: none;
 }
 
-.form-actions {
+.hanh-dong-form {
     text-align: left;
     margin-top: 20px;
 }
 
-.form-actions button {
+.hanh-dong-form button {
     padding: 12px 30px;
     background-color: #333;
     color: white;
@@ -161,53 +159,53 @@ body {
     transition: background-color 0.3s;
 }
 
-.form-actions button:hover {
+.hanh-dong-form button:hover {
     background-color: #555;
 }
 
-/* Additional styles for privacy notice */
-.privacy-notice {
+.thong-bao-rieng-tu {
     margin-top: 20px;
     font-size: 12px;
     color: #6c757d;
     text-align: left;
 }
 
-/* Thêm margin-top cho phần Đổi Mật Khẩu */
-.main-content h3 {
-    margin-top: 30px;  /* Để cách phần trước của form */
+.noi-dung-chinh h3 {
+    margin-top: 30px;
 }
 
-.form-group.password-group {
-    margin-top: 30px;  /* Cách phần "Thông tin người dùng" */
+.nhom-form.nhom-mat-khau {
+    margin-top: 30px;
 }
 
 
     </style>
-</head>
+</head>  
 <body>
-    <div class="a">
-        <?php
+    <header>
+    <?php
             require_once 'views/khung/header.php';
         ?>
-    </div>
-<div class="breadcrumb">
+    </header>
+<div class="duong-dan">
     <a href="#" onclick="saveClick('Trang chủ')">Trang chủ</a> / Thông tin cá nhân
 </div>
 
-<div class="container">
-    <div class="sidebar">
+<div class="khung-chua">
+    <div class="thanh-ben">
         <h3>Trung tâm cá nhân</h3>
         <ul>
             <li><strong>Tài khoản của tôi</strong>
                 <ul>
                     <li><a href="?act=profile" onclick="saveClick('Thông tin của tôi')">Thông tin của tôi</a></li>
+                    <li><a href="?act=changePass" onclick="saveClick('Thông tin của tôi')">Đổi mật khẩu</a></li>
+
                 </ul>
             </li>
             <li><strong>Đơn hàng của tôi</strong>
                 <ul>
                     <li><a href="#" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng xử lý</a></li>
+                    <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
                     <li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
                     <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
                     <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
@@ -217,33 +215,34 @@ body {
             </li>
         </ul>
     </div>
-    <div class="main-content">
+    <div class="noi-dung-chinh">
         <h2>THÔNG TIN NGƯỜI DÙNG</h2>
         <form action="" method="post">
-            <div class="form-group">
+            <div class="nhom-form">
                 <label for="username">Tên đăng nhập:</label>
                 <input type="text" id="username" name="username" value="<?= $show['username'] ?>" readonly>
             </div>
-            <div class="form-group">
+            <div class="nhom-form">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?= $show['email'] ?>" required>
             </div>
-            <div class="form-group">
+            <div class="nhom-form">
                 <label for="phone">Số điện thoại:</label>
                 <input type="tel" id="phone" name="phone" value="<?= $show['phone'] ?>" required>
             </div>
-            <div class="form-group">
+            <div class="nhom-form">
                 <label for="address">Địa chỉ:</label>
                 <input type="text" id="address" name="address" value="<?= $show['address'] ?>">
             </div>
-            <div class="form-actions">
+            <div class="hanh-dong-form">
                 <button type="submit" name="btn_update">LƯU</button>
             </div>
-        </form>
-       
-            
-        
+        </form>        
+    </div>
 </div>
 
+<footer>
+    <?php require_once 'views/khung/footer.php';?>
+</footer>
 </body>
 </html>

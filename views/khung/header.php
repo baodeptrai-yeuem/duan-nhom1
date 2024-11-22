@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
+            /* background-color: #f0f2f5; */
         }
 
         /* Header */
@@ -147,20 +147,29 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">
-            My Website
-        </div>
-        <nav>
-            <div class="khung">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Services</a>
-                <a href="#" class="nav-link">Liên Hệ</a>
-                
-            </div>
-        </nav>
-        <div class="icon-container">
+<div class="container">
+            <div class="mid mid-home">
+                <div class="left">
+                    <a href="#sideMenuMobile" class="toggle-menu-side-bar">
+                        <div class="bar">
+                            <span class="line-bar"></span>
+                            <span class="line-bar"></span>
+                            <span class="line-bar"></span>
+                        </div>
+                    </a>
+                    <a class="logo-fix" href="">
+                        <img src="assets/img/logo.jpg" alt="Savani">
+                    </a>
+                </div>
+                <div class="func ">
+                    <ul id="megamenu" class="menu selected">
+                    <li class="li1 level_0"><a href="" class="menu_item_a_0">Áo thun</a></li>
+                    <li class="li2 level_0"><a href="" class="menu_item_a_0">Áo Sơ mi</a></li>
+                    <li class="li3 level_0"><a href="" class="menu_item_a_0">Áo Polo</a></li>
+                    <li class="li4 level_0"><a href="" class="menu_item_a_0">ĐỒNG PHỤC</a></li>
+                    <li class="li331 level_0"><a href="" class="menu_item_a_0">BỘ SƯU TẬP</a></li>
+                    <li class="li331 level_0"><a href="" class="menu_item_a_0">Liên Hệ</a></li>
+            <div class="icon-container">
             <!-- Search -->
             <div class="search-bar" id="searchBar">
                 <input type="text" class="search-input" placeholder="Tìm kiếm...">
@@ -195,7 +204,6 @@
                                 <?php
                             }
                             ?>
-                            <a class="dropdown-item" href="?act=changePass">doi mk</a>
                             <a class="dropdown-item" href="#">Giỏ Hàng</a>
                             <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
                             <?php
@@ -213,8 +221,9 @@
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart.png" alt="Cart">
             </a>
         </div>
-    </header>
-
+                </div>
+            </div>
+        </div>
     <script>
         document.getElementById('searchIcon').addEventListener('click', function () {
             var searchBar = document.getElementById('searchBar');

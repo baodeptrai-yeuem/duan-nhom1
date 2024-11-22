@@ -1,0 +1,41 @@
+.breadcrumbs {
+  text-align: left;
+  margin-bottom: 0;
+  border-radius: 0;
+  color: #000000;
+}
+
+.breadcrumbs .breadcrumb {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.breadcrumbs a {
+  color: #000;
+}
+
+.breadcrumbs a:hover {
+  color: #EE4D2D;
+}
+
+.breadcrumbs i {
+  color: #737373;
+}
+
+.breadcrumbs li:before {
+  display: none;
+}
+
+.breadcrumbs li.active {
+  color: #000;
+}
+
+.breadcrumbs i {
+  margin: 0 5px;
+}
+
+.breadcrumbs svg {
+  margin-right: 8px;
+}
+
+/*# sourceMappingURL=breadcrumbs_simple.css.map */
