@@ -6,12 +6,12 @@ ob_start();
 require_once '../commons/database.php';
 //kết nối controller
 require_once 'controller/SPController.php';
-require_once 'controller/danhmucController.php';
+require_once 'controller/DMController.php';
 require_once 'controller/trangchu.php';
 require_once 'controller/profileController.php';
 //kết nối model
 require_once 'model/SPController.php';
-require_once 'model/danhmucModel.php';
+require_once 'model/DMModel.php';
 require_once 'model/profileModel.php';
 
 $act = $_GET['act'] ?? '/';
