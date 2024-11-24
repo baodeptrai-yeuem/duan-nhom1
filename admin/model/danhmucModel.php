@@ -51,5 +51,10 @@
         $sql="select * from danhmuc where id_danhmuc=$id";
         return $this->conn->query($sql)->fetch();
     }
+    function soluongtk(){
+        $sql = "SELECT COUNT(*) as soluongtk FROM user";
+        return $this -> conn -> query($sql) -> fetch();
+    }
+
 }
 ?>

@@ -22,7 +22,8 @@
     
         }
         function getProfileByUsername($username){
-            return $this->conn->query("SELECT * FROM user WHERE username='$username'")->fetch();
+            $sql = "SELECT * FROM user WHERE username='$username'";
+            return $this->conn->query($sql)->fetch();
         }
     
     }

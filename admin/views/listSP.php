@@ -120,13 +120,7 @@
     <div class="content-area">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="?act=insertproduct" class="btn btn-primary">Thêm sản phẩm</a>
-            <!-- Search bar container -->
             <div class="search-bar-container">
-                <form method="GET" class="form-inline">
-                    <button type="button" class="search-btn" onclick="toggleSearch()">Tìm kiếm</button>
-                    <input type="text" name="search" class="form-control mr-2 search-input" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm">
-                    <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
-                </form>
             </div>
         </div>
 
@@ -175,14 +169,11 @@
             </tbody>
         </table>
     </div>
-
-    <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        // Function to toggle the search input visibility
         function toggleSearch() {
             const searchContainer = document.querySelector('.search-bar-container');
             searchContainer.classList.toggle('active');
