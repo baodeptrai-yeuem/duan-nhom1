@@ -7,7 +7,7 @@
         function maganetk(){
             $so = $this -> taikhoanModel -> soluongtk();
             $list = $this -> taikhoanModel ->listtk();
-            require_once 'views/maganetk.php';
+            require_once 'views/adminProfile.php';
         }
     
         function DeleteUser($id){
@@ -20,10 +20,5 @@
                 echo "lỗi";
             }
         }
-
-        // function soluongtk(){
-
-        //     require_once 'views/khung/header.php';
-        // }
     }
 ?>

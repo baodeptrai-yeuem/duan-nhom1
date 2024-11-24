@@ -8,11 +8,11 @@ require_once '../commons/database.php';
 require_once 'controller/sanphamController.php';
 require_once 'controller/danhmucController.php';
 require_once 'controller/trangchu.php';
-require_once 'controller/taikhoanController.php';
+require_once 'controller/profileController.php';
 //kết nối model
 require_once 'model/sanphamModel.php';
 require_once 'model/danhmucModel.php';
-require_once 'model/taikhoanModel.php';
+require_once 'model/profileModel.php';
 
 $act = $_GET['act'] ?? '/';
 match ($act) {
