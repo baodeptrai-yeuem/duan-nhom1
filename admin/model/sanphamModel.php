@@ -55,7 +55,10 @@ class sanphamModel{
             return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id]);
         }
         // quản lý tài khoản
-
+        function soluongtk(){
+            $sql = "SELECT COUNT(*) as soluongtk FROM user";
+            return $this -> conn -> query($sql) -> fetch();
+        }
 
 }
 ?>

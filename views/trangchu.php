@@ -77,45 +77,31 @@ body {
 }
 
 .noi-dung-chinh {
-    display: flex;
-    justify-content: center;
+
     gap: 30px;
     margin-top: 20px;
 }
-.khu-vuc-container{
-    
-    width: 1800px;
-    
+.khu-vuc-container {
+    width: 1200px;
+    margin-right: auto;
+    padding-left: 20px;
+    justify-content: flex-start;
 }
-
-.banner {
-    flex: 1.2;
-    max-width: 370px;
-}
-
-.banner img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .khu-vuc-san-pham {
-    flex: 2;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
 
 .the-san-pham {
-    height: 500px;
+    height: 400px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 270px;
 }
 
 .the-san-pham:hover {
@@ -125,27 +111,27 @@ body {
 
 .hinh-anh-san-pham {
     width: 100%;
-    height: 80%;
+    height: 70%;
     object-fit: cover;
 }
 
 .thong-tin-san-pham {
-    padding: 10px 15px;
+    padding: 10px;
     text-align: left;
 }
 
 .ten-san-pham {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: #333;
 }
 
 .gia-san-pham {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #ff0000;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .tin-tuc {
@@ -200,10 +186,13 @@ body {
     color: #999;
     margin-bottom: 10px;
 }
+footer{
+    margin-top: 5%
+}
 
 
 </style>
-
+<body>
 <div id="bannerHome" class="owl-carousel owl-theme">
             <div class="item">
             <a href="">
@@ -213,19 +202,11 @@ body {
     </div>    </div>
     <div class="noi-dung-chinh">
     <div class="khu-vuc-container">
-
-        <div class="phan-tieu-de">
-            <h1>Áo Pô lô</h1>
-            <div class="gach-chan"></div>
-        </div>
         <div class="noi-dung-chinh">
-            <div class="banner">
-                <img src="assets/csstrangchu/images/banner2-01_1728533561_1.webp" alt="Hình Banner">
-            </div>
             <div class="khu-vuc-san-pham">
             <?php foreach($sanpham as $row){ ?>
                 <div class="the-san-pham">
-                    <img src="assets/csstrangchu/images/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
+                    <img src="./assets/img/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
                     <div class="thong-tin-san-pham">
                         <div class="ten-san-pham"><?= $row['name'] ?></div>
                         <div class="gia-san-pham"><?= $row['price'] ?>đ</div>
@@ -234,51 +215,13 @@ body {
                 <?php } ?>
             </div>
         </div>
-        <div class="phan-tieu-de">
-            <h1>Áo Thun</h1>
+    </div>
+</div>
+<div class="phan-tieu-de">
+            <h1>Tin Tức</h1>
             <div class="gach-chan"></div>
-        </div>
-        <div class="noi-dung-chinh">
-            <div class="banner">
-                <img src="assets/csstrangchu/images/banner2-01_1728533561_1.webp" alt="Hình Banner">
-            </div>
-            <div class="khu-vuc-san-pham">
-            <?php foreach($sanpham as $row){ ?>
-                <div class="the-san-pham">
-                    <img src="assets/csstrangchu/images/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
-                    <div class="thong-tin-san-pham">
-                        <div class="ten-san-pham"><?= $row['name'] ?></div>
-                        <div class="gia-san-pham"><?= $row['price'] ?>đ</div>
-                    </div>
-                </div>
-                <?php } ?> 
-            </div>
-        </div>
-        <div class="phan-tieu-de">
-            <h1>Áo Sơ mi</h1>
-            <div class="gach-chan"></div>
-        </div>
-        <div class="noi-dung-chinh">
-            <div class="banner">
-                <img src="assets/csstrangchu/images/banner2-01_1728533561_1.webp" alt="Hình Banner">
-            </div>
-            <div class="khu-vuc-san-pham">
-                <?php foreach($sanpham as $row){?>
-                    <div class="the-san-pham">
-                        <img src="assets/csstrangchu/images/<?= $row['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
-                        <div class="thong-tin-san-pham">
-                            <div class="ten-san-pham"><?= $row['name'] ?></div>
-                            <div class="gia-san-pham"><?= $row['price'] ?>đ</div>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-            <div class="phan-tieu-de">
-                <h1>Áo Sơ mi</h1>
-                <div class="gach-chan"></div>
-            </div>
-            <div class="danh-sach-tin">
+</div>
+<div class="danh-sach-tin">
             <div class="bai-viet">
                 <img src="assets/images/classic-style.jpg" alt="Classic style" />
                 <h3>Classic style là gì? Xu hướng phối đồ đầy sang trọng - cuốn hút</h3>
@@ -295,10 +238,6 @@ body {
                 <p class="ngay-thang">24/10/2024</p>
             </div>
     </div>
-</div>
-
-    </div>
-</div>
 <footer class="footer">
         <?php require_once 'views/khung/footer.php'; ?>
 </footer>

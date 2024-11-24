@@ -8,5 +8,14 @@
             $sql = "SELECT * FROM sanpham";
             return $this->conn->query($sql)->fetchAll();
         }
+
+function listpro($kyw = "") {
+    $sql = "SELECT * FROM sanpham WHERE name LIKE ? ORDER BY id_sanpham DESC";
+    $stmt = $this->conn->prepare($sql);
+    
+    $stmt->execute(['%' . $kyw . '%']);
+    
+    return $stmt->fetchAll();
+}
     }     
 ?>

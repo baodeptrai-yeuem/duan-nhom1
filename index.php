@@ -18,7 +18,6 @@
     //san pham 
     require_once 'controller/sanphamController.php';
     require_once 'model/sanphamModel.php';
-
     $act = $_GET['act'] ?? '/';
     match ($act) {
         '/' => (new showSP())->showSP(),
@@ -31,5 +30,6 @@
         'dangxuat' => (new loginController())->logout(),
         'profile' => (new profileController())->profile(),
         'changePass' => (new updatePassController())->changePass(),
+        'timkiem' => (new showSP()) -> timkiem(),
     };
 ?>

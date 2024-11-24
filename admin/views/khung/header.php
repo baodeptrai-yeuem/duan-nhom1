@@ -18,14 +18,10 @@
         </button>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Hồ sơ</a>
-
+                    <a class="nav-link" href="#">Xin chào: <?php echo $_SESSION['username']['username'] ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cài đặt</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Đăng xuất</a>
+                    <a class="nav-link" href="../index.php">Ra trang chủ</a>
                 </li>
             </ul>
         </div>
@@ -45,13 +41,10 @@
                 <a class="nav-link" href="#">Đơn Hàng</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Phản Hồi</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="?act=maganetk">Quản lý tài khoản</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mã Giảm Giá</a>
+                <a class="nav-link" href="#">Thống kê</a>
             </li>
         </ul>
     </div>

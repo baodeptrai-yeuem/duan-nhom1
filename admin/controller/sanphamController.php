@@ -6,11 +6,13 @@ class sanphamController{
         $this-> sanphamModel= new sanphamModel();
     }
     function listProduct(){
+        $so = $this -> sanphamModel -> soluongtk();
         $allProduct=$this->sanphamModel->getAllProduct();
         require_once 'views/listSP.php';
     }
 
     function deleteProduct($id){
+        $so = $this -> sanphamModel -> soluongtk();
         $check = $this->sanphamModel->deleteProduct($id);
         if($check){
             header("Location: ?act=listSP");
@@ -20,6 +22,7 @@ class sanphamController{
     }
 
     function updateProduct($id){
+        $so = $this -> sanphamModel -> soluongtk();
         $oneProduct = $this->sanphamModel->findProductById($id);
         $cateProduct = $this->sanphamModel->cateProduct();
         $cateName = $this->sanphamModel->cateName($oneProduct['id_cate']);
@@ -53,6 +56,7 @@ class sanphamController{
     }
 
     function insertProduct(){
+        $so = $this -> sanphamModel -> soluongtk();
         $listCateName = $this->sanphamModel->listCateName();
         require_once 'views/insertSP.php';
         
