@@ -1,0 +1,442 @@
+#main .register-by-facebook {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  background-color: #1877F2;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  max-height: 40px;
+  position: relative;
+  width: 100%;
+  padding-left: 35px;
+}
+
+#main .register-by-facebook:before {
+  content: '';
+  background: url("../images/fb.svg") center center no-repeat #1877F2;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+#main .register-by-facebook:hover {
+  color: white;
+  opacity: 0.9;
+}
+
+#main .register-by-google {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  background-color: #D54B3D;
+  color: white;
+  height: 40px;
+  border-radius: 5px;
+  max-height: 40px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-left: 35px;
+}
+
+#main .register-by-google:before {
+  content: '';
+  background: url("../images/gmail.svg") center center no-repeat #D54B3D;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  position: absolute;
+  font-family: "FontAwesome";
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+#main .register-by-google:hover {
+  color: white;
+  opacity: 0.9;
+}
+
+#main .form-regis {
+  width: 853px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 47% 53%;
+      grid-template-columns: 47% 53%;
+  -webkit-box-shadow: 2px 3px 3px #DDDDDD;
+          box-shadow: 2px 3px 3px #DDDDDD;
+}
+
+@media all and (max-width: 768px) {
+  #main .form-regis {
+    display: block;
+    width: 100%;
+  }
+}
+
+#main .form-regis .left {
+  background: #EEEEEE;
+}
+
+#main .form-regis .left img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+#main .form-regis .left .title-login {
+  font-size: 16px;
+  font-weight: 600;
+  color: #EE4D2D;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+#main .form-regis .left .list {
+  padding: 0px 20px;
+}
+
+#main .form-regis .right {
+  padding: 25px 30px 40px;
+}
+
+#main .form-regis .right .function {
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#main .form-regis .right .function a {
+  font-size: 18px;
+  color: #555555;
+  text-transform: uppercase;
+  padding: 10px;
+  display: block;
+}
+
+#main .form-regis .right .function a:first-child {
+  width: 155px;
+}
+
+#main .form-regis .right .function a:last-child {
+  width: 235px;
+  padding-left: 30px;
+}
+
+#main .form-regis .right .function .active {
+  color: #232020;
+  border-bottom: 1px solid #232020;
+}
+
+#main .form-regis .success-title {
+  color: #50B748;
+  margin-top: 15px;
+}
+
+#main .form-regis .line {
+  margin-top: 29px;
+  border-top: 1px solid #E5E5E5;
+  position: relative;
+  margin-bottom: 24px;
+  line-height: 40px;
+  margin-left: 10px;
+}
+
+#main .form-regis .line .summary-regis {
+  background: #fff;
+  margin: -23px 0px 0px 0;
+  position: absolute;
+  text-align: center;
+  padding: 0 10px;
+  left: 28%;
+}
+
+#main .info {
+  margin-top: 25px;
+}
+
+#main .info input {
+  margin-bottom: 10px;
+  height: 40px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 3px 3px #DDDDDD;
+          box-shadow: 2px 3px 3px #DDDDDD;
+  border: 1px solid #DDDDDD;
+  color: #333;
+}
+
+#main .info input::-webkit-input-placeholder {
+  color: #333;
+}
+
+#main .info input:-ms-input-placeholder {
+  color: #333;
+}
+
+#main .info input::-ms-input-placeholder {
+  color: #333;
+}
+
+#main .info input::placeholder {
+  color: #333;
+}
+
+#main .info .forgot_pass {
+  font-size: 14px;
+  color: #EE4D2D;
+  text-align: right;
+  display: block;
+  margin-top: 5px;
+}
+
+#main .info .password .half-left {
+  width: 48%;
+  margin-right: 4%;
+  float: left;
+}
+
+#main .info .password .half-right {
+  width: 48%;
+  float: right;
+}
+
+#main .info .note {
+  padding: 5px 10%;
+  font-style: italic;
+}
+
+#main .info .btnsubmit {
+  background: #EE4D2D;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+#main .info .btnsubmit:hover {
+  opacity: 0.9;
+}
+
+#main .info .btnsubmit #register-btn, #main .info .btnsubmit #signin-btn {
+  background: none;
+  display: block;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+#main .info .btnsubmit #register-btn:hover, #main .info .btnsubmit #signin-btn:hover {
+  cursor: pointer;
+}
+
+#main .info .box-submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#main .info .box-submit .khsubmit {
+  background: #EC1D25;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 49%;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#main .info .box-submit .khsubmit #verify-btn:hover {
+  cursor: pointer;
+}
+
+#main .info .box-submit .khsubmit:hover {
+  opacity: 0.9;
+}
+
+#main .info .box-submit .right {
+  width: 50%;
+}
+
+#main .info .box-submit .right a {
+  float: right;
+  margin-top: 10px;
+}
+
+#main .info .btn_update {
+  background: #0673BA;
+  padding: 16px 44px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+#main .info .re_send {
+  float: right;
+  color: #0673BA;
+}
+
+#main .info .re_send:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#main .info .login {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+#main .info .login a {
+  text-transform: uppercase;
+}
+
+#main .info2 {
+  margin-bottom: 30px;
+}
+
+#main .empty {
+  height: 25px;
+}
+
+#main .regis-update {
+  width: 80%;
+  text-align: center;
+}
+
+#main .regis-update input, #main .regis-update select {
+  font-size: 14px;
+}
+
+#main .regis-update .title-regis {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+#main .regis-update .col-md-3 {
+  margin-bottom: 20px;
+}
+
+#main .regis-update .col-md-3 .title_input {
+  float: right;
+  margin-top: 15px;
+}
+
+#main .regis-update .col-md-4 i {
+  float: right;
+  margin-top: -25px;
+  margin-right: 15px;
+}
+
+#main .regis-update .submit-div {
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+
+#main .regis-update .submit-div .submitbtn {
+  padding: 15px 60px;
+  background: #0673BA;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-left: 50px;
+}
+
+#main .regis-update .submit-div .submitbtn:hover {
+  opacity: 0.9;
+}
+
+#main .form-control {
+  margin-bottom: 20px;
+  border: none;
+}
+
+#main .label_error {
+  color: red;
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+#main .disabled-resend {
+  pointer-events: none;
+  color: #ccc !important;
+}
+
+.form-group2 {
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.label-control2 {
+  position: absolute;
+  top: 1rem;
+  left: 0.87rem;
+  color: #626262;
+  opacity: 1;
+  cursor: text;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.form-control-input2:focus + .label-control2,
+.form-control-input2.notEmpty + .label-control2,
+.form-control-input-date2 + .label-control2,
+.form-control-input-gender2 + .label-control2,
+.form-control-input-address2 + .label-control2 {
+  top: 0.125rem;
+  opacity: 1;
+  font-size: 13px;
+}
+
+.form-control-input2:focus + .label-control2 {
+  top: 0.125rem;
+  opacity: 1;
+  font-size: 14px;
+  color: #0047b1;
+  font-weight: 700;
+}
+
+.form-control-input2, .form-control-input-date2,
+.form-control-select2, .form-control-input-address2, .form-control-input-gender2 {
+  display: block;
+  width: 100%;
+  padding-top: 1.0625rem;
+  padding-bottom: 0.0625rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  color: #333;
+  font: 400 0.875rem/1.875rem "Raleway", sans-serif;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-appearance: none;
+  padding-left: 0.87rem;
+  outline: none;
+}
+
+.form-control-input2:focus, .form-control-input-date2:focus,
+.form-control-select2:focus, .form-control-input-address2:focus, .form-control-input-gender2:focus {
+  outline: 0;
+}
+
+input[type=password] {
+  font-size: 14px;
+  color: #333;
+}
+/*# sourceMappingURL=dangky.css.map */
