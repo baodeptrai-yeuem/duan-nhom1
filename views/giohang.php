@@ -8,11 +8,29 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="https://savani.vn/modules/products/assets/css/step.css?v=8.65" />
     <link rel="stylesheet" type="text/css" media="screen" href="https://savani.vn/templates/default/scss/font-awesome/css/font-awesome.css?v=8.65" />
+
+    <?php require_once 'khung/style_link.php'; ?>
+
+
 </head>
+<style>
+    .main-step .right-box .total button {
+        border: none;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background: #EE4D2D;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+</style>
 
 <body>
     <header>
-        <?php require_once 'views/khung/header.php'; ?>
+        <?php require_once 'khung/header.php'; ?>
     </header>
 
     <div class="main-step">
@@ -37,6 +55,7 @@
                         </tr>
                     </thead>
                     <tbody id="list_cart">
+                        <!-- list cart -->
                     </tbody>
                 </table>
             </div>
@@ -60,83 +79,108 @@
                     <p>
                         Tổng cộng: <span class="right" id="total_price">0,000đ</span>
                     </p>
-                    <a href="https://savani.vn/gio-hang.html">Mua hàng</a>
+                    <?php if (isset($_SESSION['username'])) { ?>
+                        <form id="cartForm" action="index.php?act=muangay" method="post">
+                            <input type="hidden" name="cartItems" id="cartItemsInput">
+                            <input type="hidden" name="totalPrice" id="totalPriceInput">
+                            <button type="submit">Mua hàng</button>
+                        </form>
+                    <?php } else { ?>
+                        <a href="index.php?act=dangnhap" onclick="return confirm('Vui lòng đăng nhập để tiếp tục.');">Vui lòng đăng nhập</a>
+                    <?php } ?>
                     <p class="code-alert">Mã giảm giá vui lòng chọn ở bước thanh toán</p>
                 </div>
             </div>
         </div>
     </div>
+
+
     <footer>
-        <?php require_once 'views/khung/footer.php'; ?>
+        <?php require_once 'khung/footer.php'; ?>
     </footer>
+
     <script>
-    const list_cart = document.getElementById('list_cart');
+        const list_cart = document.getElementById('list_cart');
 
-    function removeCartItemById(itemId) {
-        const confirmed = confirm(`Bạn có chắc muốn xóa sản phẩm với ID: ${itemId}?`);
-        if (confirmed) {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            const updatedCartItems = cartItems.filter(item => item.id !== itemId);
-            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-            window.location.reload();
-        }
-    }
-
-    function getCartItemsFromLocalStorage() {
-        return JSON.parse(localStorage.getItem('cartItems')) || [];
-    }
-
-    function totalPriceCart() {
-        const cartItems = getCartItemsFromLocalStorage();
-        const totalPrice = cartItems.reduce((sum, item) => sum + (item.total || 0), 0);
-        document.getElementById('total_price').innerHTML = totalPrice.toFixed(3) + "đ";
-    }
-
-    totalPriceCart();
-
-    const cartItems = getCartItemsFromLocalStorage();
-
-    if (cartItems.length > 0) {
-        cartItems.forEach(item => {
-            if (!item.id || !item.name || !item.price || !item.total) {
-                console.error("Dữ liệu sản phẩm không đầy đủ:", item);
-                return;
+        // só sán phẩm trong giỏ hàng
+        function removeCartItemById(itemId) {
+            const confirmed = confirm(`Bạn có chắc muốn xóa: ${itemId}?`);
+            if (confirmed) {
+                console.log(`Removing item with ID: ${itemId}`);
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const updatedCartItems = cartItems.filter(item => item.id !== itemId);
+                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+                window.location.reload();
+            } else {
+                console.log('Item removal cancelled.');
             }
+        }
 
+
+        function getCartItemsFromLocalStorage() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            return cartItems; // Return the array of cart items
+        }
+
+        function totalPriceCart() {
+            const cartItems = getCartItemsFromLocalStorage();
+            let totalPrice = 0;
+            cartItems.forEach(item => {
+                totalPrice += item.total;
+            });
+            total_price = document.getElementById('total_price').innerHTML = totalPrice.toFixed(3);
+            document.getElementById('totalPriceInput').value = JSON.stringify(total_price);
+
+        }
+        totalPriceCart()
+
+        const cartItems = getCartItemsFromLocalStorage();
+        document.getElementById('cartItemsInput').value = JSON.stringify(cartItems);
+
+        cartItems.forEach(item => {
             const detailCart = document.createElement('tr');
+
             detailCart.innerHTML = `
-                <td>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="./assets/img/${item.image}" alt="${item.name}" class="img">
-                        </div>
-                        <div class="col-md-9">
-                            <a href="?act=CTsanpham&id=${item.id}" class="name">${item.name}</a>
-                            <div class="bottom">
-                                <a href="javascript:void(0)" class="del-pro-link" onclick="removeCartItemById(${item.id})">
-                                    Xóa
-                                </a>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-3">
+                               <img class="img" src="./assets/img/${item.image}" alt="Sản phẩm 1" class="hinh-anh-san-pham">
+                            </div>
+                            <div class="col-md-9">
+                             <a href="?act=CTsanpham&id=${item.id}" class="name">${item.name}</a>
+
+                                <span class="discount-buy-multi">
+                                </span>
+
+                                <div class="bottom">
+                                    <a href="javascript: void (0)" class="del-pro-link" data-id="1535" onclick="removeCartItemById(${item.id})">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.0625 5.0625H3.9375V17.4375H14.0625V5.0625Z" stroke="#232020" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M15.1875 2.8125H2.8125V5.0625H15.1875V2.8125Z" stroke="#232020" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M6.75 2.8125V0.5625H11.25V2.8125" stroke="#232020" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M7.3125 7.875V17.4375" stroke="#232020" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M10.6875 7.875V17.4375" stroke="#232020" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                        <span>Xóa</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </td>
-                <td>${item.price.toFixed(3)}đ</td>
-                <td>
-                    <div class="count-number">
-                        <input class="quantity" type="text" value="${item.quantity}" disabled>
-                    </div>
-                </td>
-                <td>${item.total.toFixed(3)}đ</td>
-            `;
+                    </td>
+                    <td>
+                        ${item.price.toFixed(3)}đ
+                    <td>
+                        <div class="count-number">
+                            <input id="quantity-44081" class="quantity" type="text" value="${item.quantity}" disabled="">
+                        </div>
+                    </td>
+                    <td class="money-per-prd money-sprd-4408">
+                        ${item.total.toFixed(3)}đ
+                        </td>
+                `;
             list_cart.appendChild(detailCart);
         });
-    } else {
-        console.log("Giỏ hàng trống.");
-    }
-</script>
-
-
-
+    </script>
 
 </body>
 

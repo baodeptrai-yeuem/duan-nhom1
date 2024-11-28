@@ -20,8 +20,11 @@ require_once 'controller/sanphamController.php';
 require_once 'model/sanphamModel.php';
 // gio hang
 require_once 'controller/cartController.php';
+require_once 'controller/orderController.php';
+
 
 $act = $_GET['act'] ?? '/';
+
 match ($act) {
     '/' => (new showSP())->showSP(),
     'dangky' => (new registerController())->dangky(),
@@ -35,5 +38,7 @@ match ($act) {
     'changePass' => (new updatePassController())->changePass(),
     'timkiem' => (new showSP())->timkiem(),
     'CTsanpham' => (new showSP())->chitietsanpham($_GET['id']),
-    'giohang' => (new cartController)->show_list_cart()
+    'giohang' => (new cartController())->show_list_cart(),
+    'muangay' => (new orderController())->show_cart_to_buy(),
+    'checkout' => (new orderController())->checkout()
 };

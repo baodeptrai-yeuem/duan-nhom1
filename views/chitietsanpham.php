@@ -53,8 +53,6 @@
 
                                 <div class="img-show" style="position: relative;margin-right:20px">
                                     <img src="./assets/img/<?= $sanpham['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
-
-                                    <!-- <img src="https://savani.vn/images/products/2023/12/15/large/ao-gio-nam-mgf002w3-2-k01_1702625718.jpg" alt="Áo gió có mũ nam MGF002W3"> -->
                                 </div>
 
 
@@ -64,7 +62,6 @@
                             <p class="prod-name"><?= $sanpham['name'] ?></p>
                             <div class="info">
                                 <p class="model">Mã sản phẩm: <span>#<?= $sanpham['id_sanpham'] ?></span></p>
-                                <!-- <span class="status">Tình trạng: Còn hàng</span> -->
                             </div>
 
                             <div class="info-login">
@@ -116,7 +113,7 @@
 
                                             <div class="buy-now">
                                                 <div class="add-to-cart-now ripple-btn no-gutters" data-id="1535">
-                                                    <a onclick="addCartNow(4408)" id="addCartNow_page1" class="addCartNow active">
+                                                    <a id="buyNowtButton" href="index.php?act=giohang" aria-label="Add product to cart" class="addCartNow active">
                                                         <div style="display:flex;gap:8px;justify-content:center">
                                                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M5.5415 20.1667C5.17484 20.1667 4.854 20.0292 4.579 19.7542C4.304 19.4792 4.1665 19.1584 4.1665 18.7917V6.87504C4.1665 6.50837 4.304 6.18754 4.579 5.91254C4.854 5.63754 5.17484 5.50004 5.5415 5.50004H8.06234V5.27087C8.06234 4.30837 8.39463 3.49483 9.05921 2.83025C9.7238 2.16567 10.5373 1.83337 11.4998 1.83337C12.4623 1.83337 13.2759 2.16567 13.9405 2.83025C14.605 3.49483 14.9373 4.30837 14.9373 5.27087V5.50004H17.4582C17.8248 5.50004 18.1457 5.63754 18.4207 5.91254C18.6957 6.18754 18.8332 6.50837 18.8332 6.87504V18.7917C18.8332 19.1584 18.6957 19.4792 18.4207 19.7542C18.1457 20.0292 17.8248 20.1667 17.4582 20.1667H5.5415ZM5.5415 18.7917H17.4582V6.87504H14.9373V8.93754C14.9373 9.13233 14.8711 9.29561 14.7385 9.42738C14.606 9.55915 14.4417 9.62504 14.2458 9.62504C14.0499 9.62504 13.887 9.55915 13.7571 9.42738C13.6273 9.29561 13.5623 9.13233 13.5623 8.93754V6.87504H9.43734V8.93754C9.43734 9.13233 9.37107 9.29561 9.23854 9.42738C9.10599 9.55915 8.94175 9.62504 8.74583 9.62504C8.54989 9.62504 8.38699 9.55915 8.25713 9.42738C8.12727 9.29561 8.06234 9.13233 8.06234 8.93754V6.87504H5.5415V18.7917ZM9.43734 5.50004H13.5623V5.27087C13.5623 4.69032 13.3637 4.20143 12.9665 3.80421C12.5693 3.40699 12.0804 3.20837 11.4998 3.20837C10.9193 3.20837 10.4304 3.40699 10.0332 3.80421C9.63595 4.20143 9.43734 4.69032 9.43734 5.27087V5.50004Z" fill="white" />
@@ -124,7 +121,6 @@
                                                             <span>Mua ngay</span>
                                                         </div>
                                                     </a>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -137,8 +133,6 @@
                 </div>
 
                 <!-- Gioi thieu san pham -->
-
-
                 <div class="content">
 
                     <div class="outer-detail">
@@ -184,6 +178,7 @@
         const incrementButton = document.getElementById('increment');
         const decrementButton = document.getElementById('decrement');
         const addToCartButton = document.getElementById('addToCartButton');
+        const buyNowtButton = document.getElementById('buyNowtButton');
 
 
         //  tăng giảm số lượng sản phẩm
@@ -209,11 +204,40 @@
 
 
         // thêm sản phẩm vào local 
-        function addToCartLocal(newCartItem) {
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartItems.push(newCartItem);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems))
-        }
+
+        buyNowtButton.addEventListener('click', () => {
+            const productId = <?= $sanpham['id_sanpham'] ?>;
+            const productName = `<?= $sanpham['name'] ?>`;
+            const productPrice = <?= $sanpham['price'] ?>;
+            const productImage = `<?= $sanpham['image'] ?>`;
+
+            const newCartItem = {
+                quantity: parseInt(quantityInput.value),
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                total: parseInt(quantityInput.value) * productPrice
+            };
+
+            const existsCart = getCartItemsFromLocalStorage();
+
+            let itemExists = false;
+            existsCart.forEach((item, index) => {
+                if (item.id === newCartItem.id) {
+                    item.quantity += newCartItem.quantity;
+                    item.total = productPrice * newCartItem.quantity;
+                    itemExists = true;
+                    existsCart[index] = item;
+                }
+            });
+
+            if (!itemExists) {
+                existsCart.push(newCartItem);
+            }
+            window.location.href = "act=giohang"
+            localStorage.setItem('cartItems', JSON.stringify(existsCart));
+        });
 
         addToCartButton.addEventListener('click', () => {
             const productId = <?= $sanpham['id_sanpham'] ?>;
@@ -237,10 +261,10 @@
             existsCart.forEach((item, index) => {
                 if (item.id === newCartItem.id) {
                     item.quantity += newCartItem.quantity;
+                    item.total = productPrice * newCartItem.quantity;
                     itemExists = true;
                     existsCart[index] = item; // Update the item in the array
                     alert('Cập nhật số lượng thành công');
-
                 }
             });
 
@@ -250,7 +274,6 @@
                 window.location.reload();
             }
             localStorage.setItem('cartItems', JSON.stringify(existsCart));
-
         });
     </script>
 
