@@ -207,10 +207,8 @@
 =======
 
                 <!-- Gioi thieu san pham -->
-<<<<<<< HEAD
-=======
->>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+
+
                 <div class="content">
                     <div class="outer-detail">
                         <div class="row">
@@ -269,12 +267,6 @@
         const incrementButton = document.getElementById('increment');
         const decrementButton = document.getElementById('decrement');
         const addToCartButton = document.getElementById('addToCartButton');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
-        const buyNowtButton = document.getElementById('buyNowtButton');
 
 
         //  tăng giảm số lượng sản phẩm
@@ -301,51 +293,11 @@
 <<<<<<< HEAD
 
         // thêm sản phẩm vào local 
-
-        buyNowtButton.addEventListener('click', () => {
-            const productId = <?= $sanpham['id_sanpham'] ?>;
-            const productName = `<?= $sanpham['name'] ?>`;
-            const productPrice = <?= $sanpham['price'] ?>;
-            const productImage = `<?= $sanpham['image'] ?>`;
-
-            const newCartItem = {
-                quantity: parseInt(quantityInput.value),
-                id: productId,
-                name: productName,
-                price: productPrice,
-                image: productImage,
-                total: parseInt(quantityInput.value) * productPrice
-            };
-
-            const existsCart = getCartItemsFromLocalStorage();
-
-            let itemExists = false;
-            existsCart.forEach((item, index) => {
-                if (item.id === newCartItem.id) {
-                    item.quantity += newCartItem.quantity;
-                    item.total = productPrice * newCartItem.quantity;
-                    itemExists = true;
-                    existsCart[index] = item;
-                }
-            });
-
-            if (!itemExists) {
-                existsCart.push(newCartItem);
-            }
-            window.location.href = "act=giohang"
-            localStorage.setItem('cartItems', JSON.stringify(existsCart));
-        });
-=======
-<<<<<<< HEAD
         function addToCartLocal(newCartItem) {
             let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             cartItems.push(newCartItem);
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
         }
-=======
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
-
-        // thêm sản phẩm vào local 
 
         buyNowtButton.addEventListener('click', () => {
             const productId = <?= $sanpham['id_sanpham'] ?>;

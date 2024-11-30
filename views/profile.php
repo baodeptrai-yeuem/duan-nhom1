@@ -206,9 +206,7 @@
                 </li>
                 <li><strong>Đơn hàng của tôi</strong>
                     <ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
                         <li><a href="?act=lichsudonhang" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Lịch sử đơn hàng</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đã hủy/a></li>
@@ -218,8 +216,7 @@
                         <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li> -->
-=======
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+
                         <li><a href="#" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
@@ -227,10 +224,7 @@
                         <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li>
-<<<<<<< HEAD
-=======
->>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+
                     </ul>
                 </li>
             </ul>
