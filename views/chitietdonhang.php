@@ -206,58 +206,63 @@
                 </li>
                 <li><strong>Đơn hàng của tôi</strong>
                     <ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
                         <li><a href="?act=lichsudonhang" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Lịch sử đơn hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đã hủy/a></li>
-
-                         <!--<li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li> -->
-=======
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
-                        <li><a href="#" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
+                        <!-- <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li>
-<<<<<<< HEAD
-=======
->>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li> -->
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="noi-dung-chinh">
-            <h2>THÔNG TIN NGƯỜI DÙNG</h2>
-            <form action="" method="post">
-                <div class="nhom-form">
-                    <label for="username">Tên đăng nhập:</label>
-                    <input type="text" id="username" name="username" value="<?= $show['username'] ?>" readonly>
+            <h2>Chi Tiết Đơn Hàng</h2>
+            <section class="h-100 gradient-custom">
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-header px-4 py-5">
+                        <h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #a8729a;">Anna</span>!</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <p class="lead fw-normal mb-0" style="color: #a8729a;">ID</p>
+                            <p class="small text-muted mb-0"> 1KAU9-84UIL</p>
+                        </div>
+
+                        <?php foreach ($list_detail_order as $item) { ?>
+                            <div class="card shadow-0 border mb-4">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                        <img src="./assets/img/<?= $item['image'] ?>" 
+     alt="Sản phẩm 1" 
+     class="hinh-anh-san-pham img-fluid" 
+     style="width: 150px; height: auto;" 
+     alt="Phone">
+
+                                        </div>
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0"><?= $item['name'] ?></p>
+                                        </div>
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0 small"><?= $item['price'] ?></p>
+                                        </div>
+                                    </div>
+                                    <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                                </div>
+                            </div>
+                        <?php } ?>
+
+
+                    </div>
+                    <div class="card-footer border-0 px-4 py-5"
+                        style="background-color: #a8729a; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                        <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
+                            paid: <span class="h2 mb-0 ms-2"><?= number_format($total_price, 3, ',', '.') ?>đ</span></h5>
+                    </div>
                 </div>
-                <div class="nhom-form">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?= $show['email'] ?>" required>
-                </div>
-                <div class="nhom-form">
-                    <label for="phone">Số điện thoại:</label>
-                    <input type="tel" id="phone" name="phone" value="<?= $show['phone'] ?>" required>
-                </div>
-                <div class="nhom-form">
-                    <label for="address">Địa chỉ:</label>
-                    <input type="text" id="address" name="address" value="<?= $show['address'] ?>">
-                </div>
-                <div class="hanh-dong-form">
-                    <button type="submit" name="btn_update">LƯU</button>
-                </div>
-            </form>
+            </section>
         </div>
     </div>
 

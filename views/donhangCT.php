@@ -204,60 +204,47 @@
 
                     </ul>
                 </li>
-                <li><strong>Đơn hàng của tôi</strong>
+                <li><strong>Tất cả các đơn hàng</strong>
                     <ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                        <li><a href="?act=lichsudonhang" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Lịch sử đơn hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đã hủy/a></li>
-
-                         <!--<li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li> -->
-=======
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
-                        <li><a href="#" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
+                        <li><a href="#" onclick="saveClick('Tất cả các đơn hàng')">Đơn hàng của tôi</a></li>
+                        <!-- <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
                         <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
-                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li>
-<<<<<<< HEAD
-=======
->>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
->>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li> -->
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="noi-dung-chinh">
-            <h2>THÔNG TIN NGƯỜI DÙNG</h2>
-            <form action="" method="post">
-                <div class="nhom-form">
-                    <label for="username">Tên đăng nhập:</label>
-                    <input type="text" id="username" name="username" value="<?= $show['username'] ?>" readonly>
-                </div>
-                <div class="nhom-form">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?= $show['email'] ?>" required>
-                </div>
-                <div class="nhom-form">
-                    <label for="phone">Số điện thoại:</label>
-                    <input type="tel" id="phone" name="phone" value="<?= $show['phone'] ?>" required>
-                </div>
-                <div class="nhom-form">
-                    <label for="address">Địa chỉ:</label>
-                    <input type="text" id="address" name="address" value="<?= $show['address'] ?>">
-                </div>
-                <div class="hanh-dong-form">
-                    <button type="submit" name="btn_update">LƯU</button>
-                </div>
-            </form>
+            <h2>ĐƠN HÀNG CỦA TÔI</h2>
+            <table class="table table-striped table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Tình Trạng</th>
+                        <th scope="col">Điện thoại</th>
+                        <th scope="col">Tổng tiền</th>
+                        <th scope="col">Cách thức thanh toán</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($list_order as $item) { ?>
+                        <tr>
+                            <td><?= $item['id'] ?></td>
+                            <td><?= htmlspecialchars($item['username']) ?></td>
+                            <td><?= htmlspecialchars($item['status_order']) ?></td>
+                            <td><?= htmlspecialchars($item['phone']) ?></td>
+                            <td><?= number_format($item['total_price'], 3, '.', ',') ?> ₫</td>
+                            <td><?= htmlspecialchars($item['method_pay']) ?></td>
+                            <td><a href="?act=chitietdonhang&id_order=<?= $item['id'] ?>" class="btn btn-primary">Show</a></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 

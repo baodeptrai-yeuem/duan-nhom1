@@ -54,10 +54,16 @@ class sanphamModel{
             $stmt = $this->conn->prepare($sql);
             return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id]);
         }
-        // quản lý tài khoản
+
         function soluongtk(){
             $sql = "SELECT COUNT(*) as soluongtk FROM user";
             return $this -> conn -> query($sql) -> fetch();
+        }
+
+        function headerCT() {
+            $sql = "SELECT * FROM sanpham JOIN binhluan ON binhluan.image_sp = sanpham.image";
+            $stmt = $this->conn->query($sql);
+            return $stmt->fetchAll();
         }
 
 }

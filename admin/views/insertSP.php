@@ -82,42 +82,36 @@
         <div class="container">
             <h2>Thêm sản phẩm mới</h2>
             <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-                <!-- Tên sản phẩm -->
                 <div class="form-group">
                     <label for="name">Tên sản phẩm</label>
                     <input type="text" name="name" class="form-control" id="name" >
                     <span class="error-message" id="name-error"></span>
                 </div>
 
-                <!-- Ảnh sản phẩm -->
                 <div class="form-group">
                     <label for="img">Ảnh sản phẩm</label>
                     <input type="file" name="img" class="form-control-file" id="img">
                     <span class="error-message" id="img-error"></span>
                 </div>
 
-                <!-- Giá sản phẩm -->
                 <div class="form-group">
                     <label for="price">Giá sản phẩm</label>
                     <input type="text" name="price" class="form-control" id="price" >
                     <span class="error-message" id="price-error"></span>
                 </div>
 
-                <!-- Chi tiết sản phẩm -->
                 <div class="form-group">
                     <label for="description">Chi tiết sản phẩm</label>
                     <input type="text" name="description" class="form-control" id="description" >
                     <span class="error-message" id="description-error"></span>
                 </div>
 
-                <!-- Số lượng sản phẩm -->
                 <div class="form-group">
                     <label for="quantity">Số lượng</label>
                     <input type="text" name="quantity" class="form-control" id="quantity" >
                     <span class="error-message" id="quantity-error"></span>
                 </div>
 
-                <!-- Danh mục sản phẩm -->
                 <div class="form-group">
                     <label for="cate">Danh mục sản phẩm</label>
                     <select name="cate" class="form-control" id="cate" >
@@ -138,7 +132,6 @@
             let isValid = true;
             document.querySelectorAll('.error-message').forEach(el => el.textContent = ''); // Clear all error messages
             
-            // Get form values
             const name = document.getElementById("name").value.trim();
             const price = document.getElementById("price").value.trim();
             const description = document.getElementById("description").value.trim();
@@ -146,37 +139,31 @@
             const img = document.getElementById("img").value.trim();
             const cate = document.getElementById("cate").value.trim();
             
-            // Validate name
             if (!name) {
                 document.getElementById("name-error").textContent = "Vui lòng nhập tên sản phẩm.";
                 isValid = false;
             }
 
-            // Validate price
             if (!price || isNaN(price) || price <= 0) {
                 document.getElementById("price-error").textContent = "Giá sản phẩm phải là số dương.";
                 isValid = false;
             }
 
-            // Validate description
             if (!description) {
                 document.getElementById("description-error").textContent = "Vui lòng nhập chi tiết sản phẩm.";
                 isValid = false;
             }
 
-            // Validate quantity
             if (!quantity || isNaN(quantity) || quantity <= 0) {
                 document.getElementById("quantity-error").textContent = "Số lượng phải là số dương.";
                 isValid = false;
             }
 
-            // Validate category
             if (!cate) {
                 document.getElementById("cate-error").textContent = "Vui lòng chọn danh mục sản phẩm.";
                 isValid = false;
             }
 
-            // Validate image (optional, if you want to ensure an image is uploaded)
             if (!img) {
                 document.getElementById("img-error").textContent = "Vui lòng chọn ảnh sản phẩm.";
                 isValid = false;

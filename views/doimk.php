@@ -194,29 +194,29 @@
 </div>
 
 <div class="khung-chua">
-    <div class="thanh-ben">
-        <h3>Trung tâm cá nhân</h3>
-        <ul>
-            <li><strong>Tài khoản của tôi</strong>
-                <ul>
-                    <li><a href="?act=profile" onclick="saveClick('Thông tin của tôi')">Thông tin của tôi</a></li>
-                    <li><a href="?act=changePass" onclick="saveClick('Thông tin của tôi')">Đổi mật khẩu</a></li>
+        <div class="thanh-ben">
+            <h3>Trung tâm cá nhân</h3>
+            <ul>
+                <li><strong>Tài khoản của tôi</strong>
+                    <ul>
+                        <li><a href="?act=profile" onclick="saveClick('Thông tin của tôi')">Thông tin của tôi</a></li>
+                        <li><a href="?act=changePass" onclick="saveClick('Thông tin của tôi')">Đổi mật khẩu</a></li>
 
-                </ul>
-            </li>
-            <li><strong>Đơn hàng của tôi</strong>
-                <ul>
-                    <li><a href="#" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
-                    <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+                    </ul>
+                </li>
+                <li><strong>Đơn hàng của tôi</strong>
+                    <ul>
+                        <li><a href="?act=lichsudonhang" onclick="saveClick('Tất cả các đơn hàng')">Tất cả các đơn hàng</a></li>
+                        <!-- <li><a href="#" onclick="saveClick('Đơn hàng xử lý')">Đơn hàng đang xử lý</a></li>
+                        <li><a href="#" onclick="saveClick('Đơn hàng chờ lấy hàng')">Đơn hàng chờ lấy hàng</a></li>
+                        <li><a href="#" onclick="saveClick('Đơn hàng đang giao')">Đơn hàng đang giao</a></li>
+                        <li><a href="#" onclick="saveClick('Đơn hàng đã giao')">Đơn hàng đã giao</a></li>
+                        <li><a href="#" onclick="saveClick('Đơn hàng đã hủy')">Đơn hàng đã hủy</a></li>
+                        <li><a href="#" onclick="saveClick('Đơn hàng trả lại')">Đơn hàng trả lại</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
     <div class="noi-dung-chinh">
     <h2>Đổi Mật Khẩu</h2>
     <form action="" method="POST">

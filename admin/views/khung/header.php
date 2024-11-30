@@ -44,6 +44,9 @@
                 <a class="nav-link" href="?act=maganetk">Quản lý tài khoản</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="?act=ShowBL">Quản lý bình luận</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Thống kê</a>
             </li>
         </ul>

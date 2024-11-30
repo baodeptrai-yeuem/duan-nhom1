@@ -9,10 +9,12 @@ require_once 'controller/sanphamController.php';
 require_once 'controller/danhmucController.php';
 require_once 'controller/trangchu.php';
 require_once 'controller/taikhoanController.php';
+require_once 'controller/QLbinhluanController.php';
 //kết nối model
 require_once 'model/sanphamModel.php';
 require_once 'model/danhmucModel.php';
 require_once 'model/taikhoanModel.php';
+require_once 'model/QLbinhluanModel.php';
 
 $act = $_GET['act'] ?? '/';
 match ($act) {
@@ -32,7 +34,13 @@ match ($act) {
     //Quản lý tài khoản
     'maganetk' => (new taikhoanController())->maganetk(),
     'deletetk' => (new taikhoanController())->DeleteUser($_GET['id']),
+
+    //Quản lý bình luận
+    'ShowBL'   => (new binhluanController())->ShowBL(),
+    'DeleteBL' => (new binhluanController())->DeleteBL($_GET['id']),
+    
     default         => handleDefault($act)
+
 };
 
 function handleDefault($act)

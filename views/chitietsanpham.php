@@ -12,6 +12,84 @@
     <link rel="stylesheet" type="text/css" media="screen" href="https://savani.vn/templates/default/css/style.css?v=8.65" />
     <link rel="stylesheet" type="text/css" media="screen" href="https://savani.vn/blocks/mainmenu/assets/css/styles.css?v=8.65" />
 </head>
+<style>
+    .comment-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .comment-form .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 800px;
+        border-radius: 30px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    .comment-input {
+        flex-grow: 1;
+        padding: 12px;
+        border: none;
+        font-size: 14px;
+        border-radius: 30px 0 0 30px;
+        outline: none;
+        resize: none;
+        box-sizing: border-box;
+        background-color: #f0f0f0;
+        height: 50px;
+    }
+
+    .comment-button {
+        background-color: #e64a19;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 0 30px 30px 0;
+        transition: background-color 0.3s ease;
+        height: 50px;
+    }
+
+    .comment-button:hover {
+        background-color: #d84315;
+    }
+
+
+    .comments-box {
+        margin-top: 30px;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        width: 510px;
+    }
+
+    .comment-item {
+        width: 500px;
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-name {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .comment-content {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+    }
+</style>
 
 <body>
     <div id="myPage">
@@ -53,8 +131,6 @@
 
                                 <div class="img-show" style="position: relative;margin-right:20px">
                                     <img src="./assets/img/<?= $sanpham['image'] ?>" alt="Sản phẩm 1" class="hinh-anh-san-pham">
-
-                                    <!-- <img src="https://savani.vn/images/products/2023/12/15/large/ao-gio-nam-mgf002w3-2-k01_1702625718.jpg" alt="Áo gió có mũ nam MGF002W3"> -->
                                 </div>
 
 
@@ -64,13 +140,9 @@
                             <p class="prod-name"><?= $sanpham['name'] ?></p>
                             <div class="info">
                                 <p class="model">Mã sản phẩm: <span>#<?= $sanpham['id_sanpham'] ?></span></p>
-                                <!-- <span class="status">Tình trạng: Còn hàng</span> -->
                             </div>
-
                             <div class="info-login">
                                 <div class="box-log box-logged">
-
-
                                     <div class="price-by-size">
                                         <div class="promo">
                                             <div class="promo_config">
@@ -78,12 +150,9 @@
                                             </div>
                                         </div>
                                         <div class="color">
-                                            <h2 class="row-title-left">Giá: <span class="chose-color"><?= $sanpham['price'] ?>đ</span>
+                                            <h2 class="row-title-left">Giá: <span class="chose-color" id="total_price"><?= $sanpham['price'] ?>đ</span>
                                             </h2>
                                         </div>
-
-                                        <!-- THEM VAO GIO HANG -->
-
                                         <div class="quant">
                                             <p class="row-title-left">Số lượng</p>
                                             <div class="count-box">
@@ -116,7 +185,7 @@
 
                                             <div class="buy-now">
                                                 <div class="add-to-cart-now ripple-btn no-gutters" data-id="1535">
-                                                    <a onclick="addCartNow(4408)" id="addCartNow_page1" class="addCartNow active">
+                                                    <a id="buyNowtButton" href="index.php?act=giohang" aria-label="Add product to cart" class="addCartNow active">
                                                         <div style="display:flex;gap:8px;justify-content:center">
                                                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M5.5415 20.1667C5.17484 20.1667 4.854 20.0292 4.579 19.7542C4.304 19.4792 4.1665 19.1584 4.1665 18.7917V6.87504C4.1665 6.50837 4.304 6.18754 4.579 5.91254C4.854 5.63754 5.17484 5.50004 5.5415 5.50004H8.06234V5.27087C8.06234 4.30837 8.39463 3.49483 9.05921 2.83025C9.7238 2.16567 10.5373 1.83337 11.4998 1.83337C12.4623 1.83337 13.2759 2.16567 13.9405 2.83025C14.605 3.49483 14.9373 4.30837 14.9373 5.27087V5.50004H17.4582C17.8248 5.50004 18.1457 5.63754 18.4207 5.91254C18.6957 6.18754 18.8332 6.50837 18.8332 6.87504V18.7917C18.8332 19.1584 18.6957 19.4792 18.4207 19.7542C18.1457 20.0292 17.8248 20.1667 17.4582 20.1667H5.5415ZM5.5415 18.7917H17.4582V6.87504H14.9373V8.93754C14.9373 9.13233 14.8711 9.29561 14.7385 9.42738C14.606 9.55915 14.4417 9.62504 14.2458 9.62504C14.0499 9.62504 13.887 9.55915 13.7571 9.42738C13.6273 9.29561 13.5623 9.13233 13.5623 8.93754V6.87504H9.43734V8.93754C9.43734 9.13233 9.37107 9.29561 9.23854 9.42738C9.10599 9.55915 8.94175 9.62504 8.74583 9.62504C8.54989 9.62504 8.38699 9.55915 8.25713 9.42738C8.12727 9.29561 8.06234 9.13233 8.06234 8.93754V6.87504H5.5415V18.7917ZM9.43734 5.50004H13.5623V5.27087C13.5623 4.69032 13.3637 4.20143 12.9665 3.80421C12.5693 3.40699 12.0804 3.20837 11.4998 3.20837C10.9193 3.20837 10.4304 3.40699 10.0332 3.80421C9.63595 4.20143 9.43734 4.69032 9.43734 5.27087V5.50004Z" fill="white" />
@@ -124,7 +193,6 @@
                                                             <span>Mua ngay</span>
                                                         </div>
                                                     </a>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -135,12 +203,15 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
 
                 <!-- Gioi thieu san pham -->
-
-
+<<<<<<< HEAD
+=======
+>>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
+>>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
                 <div class="content">
-
                     <div class="outer-detail">
                         <div class="row">
                             <div class="col-md-9 no-gutters row-detail">
@@ -158,35 +229,56 @@
                             <div class="col-md-3 no-gutters row-detail">
                                 <div class="suppory-product">
                                     <p style="font-weight: bold;font-size: 16px;line-height: 19px;"><strong>TỔNG ĐÀI HỖ TRỢ</strong></p>
-
                                     <p><img alt="" src="/upload_images/images/2022/01/14/dt.jpg" style="margin-right: 10px; width: 16px; height: 17px;" />Hotline mua hàng:&nbsp;<strong>0888566599</strong></p>
-
                                     <p><img alt="" src="/upload_images/images/2022/01/14/dt.jpg" style="margin-right: 10px; width: 16px; height: 17px;" />Hotline hỗ trợ, khiếu nại: <strong>0888566599</strong></p>
-
                                     <p><img alt="" src="/upload_images/images/2022/01/14/tg.png" style="margin-right: 10px; width: 16px; height: 17px;" />Thời gian làm việc từ 8h00 - 22h00 (thứ 2 - chủ nhật)</p>
-
-                                    <!--    relate-->
+                                </div>
+                            </div>
+                            <div class="col-md-9 no-gutters row-detail">
+                                <h3 class="title_info">Bình luận</h3>
+                                <div class="comment-section">
+                                    <form method="POST" action="" class="comment-form">
+                                        <div class="input-group">
+                                            <input type="hidden" name="img" value="<?= $sanpham['image'] ?>">
+                                            <textarea name="noidung" placeholder="Viết bình luận của bạn..." class="comment-input" value="<?= $sanpham['id_sanpham'] ?>" required></textarea>
+                                            <button type="submit" name="btn_insertCM" class="comment-button">Gửi bình luận</button>
+                                        </div>
+                                    </form>
+                                    <div id="comments" class="comments-box">
+                                        <?php foreach ($binhluan as $row) {
+                                            if ($sanpham['id_sanpham'] === $row['id_sanpham']) { ?>
+                                                <div class="comment-item">
+                                                    <p class="comment-name"><strong><?= htmlspecialchars($row['name_user']) ?></strong></p>
+                                                    <p class="comment-content"><?= htmlspecialchars($row['noidung']) ?></p>
+                                                </div>
+                                        <?php }
+                                        } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
         <footer class="footer">
             <?php require_once 'views/khung/footer.php'; ?>
         </footer>
     </div>
-
-
     <script>
         const quantityInput = document.getElementById('quantity');
         const incrementButton = document.getElementById('increment');
         const decrementButton = document.getElementById('decrement');
         const addToCartButton = document.getElementById('addToCartButton');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+        const buyNowtButton = document.getElementById('buyNowtButton');
 
 
         //  tăng giảm số lượng sản phẩm
+>>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
         incrementButton.addEventListener('click', () => {
             let quantity = parseInt(quantityInput.value);
             quantity++;
@@ -201,21 +293,16 @@
             }
         });
 
-        // lấy giá trị trong local 
         function getCartItemsFromLocalStorage() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             return cartItems;
         }
 
+<<<<<<< HEAD
 
         // thêm sản phẩm vào local 
-        function addToCartLocal(newCartItem) {
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartItems.push(newCartItem);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems))
-        }
 
-        addToCartButton.addEventListener('click', () => {
+        buyNowtButton.addEventListener('click', () => {
             const productId = <?= $sanpham['id_sanpham'] ?>;
             const productName = `<?= $sanpham['name'] ?>`;
             const productPrice = <?= $sanpham['price'] ?>;
@@ -232,15 +319,95 @@
 
             const existsCart = getCartItemsFromLocalStorage();
 
-            // Check if the item already exists in the cart
             let itemExists = false;
             existsCart.forEach((item, index) => {
                 if (item.id === newCartItem.id) {
                     item.quantity += newCartItem.quantity;
+                    item.total = productPrice * newCartItem.quantity;
                     itemExists = true;
-                    existsCart[index] = item; // Update the item in the array
-                    alert('Cập nhật số lượng thành công');
+                    existsCart[index] = item;
+                }
+            });
 
+            if (!itemExists) {
+                existsCart.push(newCartItem);
+            }
+            window.location.href = "act=giohang"
+            localStorage.setItem('cartItems', JSON.stringify(existsCart));
+        });
+=======
+<<<<<<< HEAD
+        function addToCartLocal(newCartItem) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(newCartItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems))
+        }
+=======
+>>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+
+        // thêm sản phẩm vào local 
+
+        buyNowtButton.addEventListener('click', () => {
+            const productId = <?= $sanpham['id_sanpham'] ?>;
+            const productName = `<?= $sanpham['name'] ?>`;
+            const productPrice = <?= $sanpham['price'] ?>;
+            const productImage = `<?= $sanpham['image'] ?>`;
+
+            const newCartItem = {
+                quantity: parseInt(quantityInput.value),
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                total: parseInt(quantityInput.value) * productPrice
+            };
+
+            const existsCart = getCartItemsFromLocalStorage();
+
+            let itemExists = false;
+            existsCart.forEach((item, index) => {
+                if (item.id === newCartItem.id) {
+                    item.quantity += newCartItem.quantity;
+                    item.total = productPrice * newCartItem.quantity;
+                    itemExists = true;
+<<<<<<< HEAD
+                    existsCart[index] = item; // Update the item in the array
+=======
+                    existsCart[index] = item;
+                }
+            });
+
+            if (!itemExists) {
+                existsCart.push(newCartItem);
+            }
+            window.location.href = "act=giohang"
+            localStorage.setItem('cartItems', JSON.stringify(existsCart));
+        });
+
+>>>>>>> b334f948a9b2bc2245904cb16bc6c775ccc15bb3
+        addToCartButton.addEventListener('click', () => {
+            const productId = <?= $sanpham['id_sanpham'] ?>;
+            const productName = `<?= $sanpham['name'] ?>`;
+            const productPrice = <?= $sanpham['price'] ?>;
+            const productImage = `<?= $sanpham['image'] ?>`;
+            const newCartItem = {
+                quantity: parseInt(quantityInput.value),
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                total: parseInt(quantityInput.value) * productPrice
+            };
+            const existsCart = getCartItemsFromLocalStorage();
+            let itemExists = false;
+            existsCart.forEach((item, index) => {
+                if (item.id === newCartItem.id) {
+                    item.quantity += newCartItem.quantity;
+                    item.total = productPrice * newCartItem.quantity;
+                    itemExists = true;
+                    existsCart[index] = item;
+>>>>>>> eb70c47 (Trang Đơn hàng của tôi + chi tiết đơn hàng)
+                    alert('Cập nhật số lượng thành công');
                 }
             });
 
@@ -250,9 +417,9 @@
                 window.location.reload();
             }
             localStorage.setItem('cartItems', JSON.stringify(existsCart));
-
         });
     </script>
+
 
 </body>
 

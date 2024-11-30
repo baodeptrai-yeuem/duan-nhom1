@@ -21,6 +21,17 @@
             $sql = "SELECT * FROM sanpham WHERE id_sanpham = $id";
             $stmt = $this->conn->query($sql);
             return $stmt->fetch();
+        }     
+        function ShowBL(){
+            $sql = "SELECT * FROM binhluan";
+            $stmt = $this->conn->query($sql);
+            return $stmt->fetchAll();
+        }
+        function newComment($id_user,$noidung,$username,$id,$image
+        ){
+            $sql ="INSERT INTO binhluan (id_user, noidung, name_user, id_sanpham, image_sp) values ('$id_user','$noidung','$username', '$id', '$image')";
+            $stmt = $this->conn->prepare($sql);
+            return $stmt->execute();
         }
     }     
 ?>

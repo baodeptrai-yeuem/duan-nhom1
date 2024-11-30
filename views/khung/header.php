@@ -155,7 +155,7 @@
                         <a href="admin" class="dropdown-item">Vào trang admin</a>
                     <?php } ?>
                     <a class="dropdown-item" href="#">Giỏ Hàng</a>
-                    <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
+                    <a class="dropdown-item" id="dangxuat" href="?act=dangxuat">Đăng xuất</a>
                 <?php } else { ?>
                     <a href="?act=dangnhap" class="dropdown-item">Đăng nhập</a>
                 <?php } ?>
@@ -169,6 +169,8 @@
 </div>
 
 <script>
+    document.getElementById('dangxuat')
+
     document.getElementById('searchIcon').addEventListener('click', function() {
         var searchBar = document.getElementById('searchBar');
         if (searchBar.classList.contains('expanded')) {
