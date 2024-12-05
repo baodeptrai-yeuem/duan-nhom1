@@ -31,5 +31,6 @@
         'profile' => (new profileController())->profile(),
         'changePass' => (new updatePassController())->changePass(),
         'timkiem' => (new showSP()) -> timkiem(),
+        'CTsanpham' => (new showSP())->chitietsanpham($_GET['id']),
     };
 ?>

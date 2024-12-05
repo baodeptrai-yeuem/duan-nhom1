@@ -5,14 +5,14 @@ ob_start();
 //ket noi database
 require_once '../commons/database.php';
 //kết nối controller
-require_once 'controller/SPController.php';
-require_once 'controller/DMController.php';
+require_once 'controller/sanphamController.php';
+require_once 'controller/danhmucController.php';
 require_once 'controller/trangchu.php';
-require_once 'controller/profileController.php';
+require_once 'controller/taikhoanController.php';
 //kết nối model
-require_once 'model/SPController.php';
-require_once 'model/DMModel.php';
-require_once 'model/profileModel.php';
+require_once 'model/sanphamModel.php';
+require_once 'model/danhmucModel.php';
+require_once 'model/taikhoanModel.php';
 
 $act = $_GET['act'] ?? '/';
 match ($act) {
