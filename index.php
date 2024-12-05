@@ -32,5 +32,8 @@
         'changePass' => (new updatePassController())->changePass(),
         'timkiem' => (new showSP()) -> timkiem(),
         'CTsanpham' => (new showSP())->chitietsanpham($_GET['id']),
+        'DMspAT'   => (new showSP)->DMspAT(),
+        'DMspPL'   => (new showSP)->DMspPL(),
+        'DMspSM'   => (new showSP)->DMspSM()
     };
 ?>
