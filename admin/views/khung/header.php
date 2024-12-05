@@ -29,7 +29,7 @@
     <div class="sidebar">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="?act=/">Trang Chủ</a>
+                <a class="nav-link" href="?act=/">Thống kê</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="?act=category">Quản lý danh mục</a>
@@ -38,13 +38,13 @@
                 <a class="nav-link" href="?act=listSP">Quản lý sản phẩm</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Đơn Hàng</a>
+                <a class="nav-link" href="?act=QLdonhang">Quản lý Đơn hàng</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="?act=maganetk">Quản lý tài khoản</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Thống kê</a>
+                <a class="nav-link" href="?act=ShowBL">Quản lý bình luận</a>
             </li>
         </ul>
     </div>
@@ -54,8 +54,9 @@
                 <div class="stat-item">
                     <i class="fas fa-calendar"></i>
                     <div>
-                        <h3>0</h3>
+                        <h3><?= $soDH['soluongDH'] ?></h3>
                         <p>Đơn Hàng</p>
+                        <a href="?act=QLdonhang"><img src="../assets/img/giohang.png" width="60" height="70" alt=""></a>
                     </div>
                 </div>
                 <div class="stat-item">
@@ -69,8 +70,9 @@
                 <div class="stat-item">
                     <i class="fas fa-box"></i>
                     <div>
-                        <h3>0</h3>
+                        <h3><?= $soSP['soluongSP'] ?></h3>
                         <p>Sản Phẩm</p>
+                        <a href="?act=listSP"><img src="../assets/img/icon_sp-removebg-preview.png" width="60" height="70" alt=""></a>
                     </div>
                 </div>
             </div>
