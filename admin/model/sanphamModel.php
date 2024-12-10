@@ -19,11 +19,11 @@ class sanphamModel{
             $stmt = $this->conn->prepare($sql);
             return $stmt->execute();
         }
-        function updateProduct($id, $name, $img, $price, $description, $quantity, $cate_id) {
+        function updateProduct($id, $name, $img, $price, $description, $cate_id) {
             if(empty($img)) {
-                $sql = "UPDATE sanpham SET name='$name', price=$price, description='$description', quantity=$quantity, id_cate=$cate_id WHERE id_sanpham=$id";
+                $sql = "UPDATE sanpham SET name='$name', price=$price, description='$description',  id_cate=$cate_id WHERE id_sanpham=$id";
             } else {
-                $sql = "UPDATE sanpham SET name='$name', image='$img', price=$price, description='$description', quantity=$quantity, id_cate=$cate_id WHERE id_sanpham=$id";
+                $sql = "UPDATE sanpham SET name='$name', image='$img', price=$price, description='$description',  id_cate=$cate_id WHERE id_sanpham=$id";
             }
             $stmt = $this->conn->prepare($sql);
             return $stmt->execute();
@@ -48,16 +48,30 @@ class sanphamModel{
     
 
 
-        function insertProduct($name, $img, $price, $description, $quantity, $view, $cate_id) {
-            $sql = "INSERT INTO sanpham (name, image, price, description, quantity, view, id_cate) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+        function insertProduct($name, $img, $price, $description, $cate_id) {
+            $sql = "INSERT INTO sanpham (name, image, price, description, id_cate) VALUES ('$name', '$img', '$price','$description', '$cate_id')";
             $stmt = $this->conn->prepare($sql);
-            return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id]);
+            return $stmt->execute();
         }
-        // quản lý tài khoản
+
+        function SoluongSP(){
+            $sql = "SELECT COUNT(*) as soluongSP FROM `sanpham`";
+            return $this->conn->query($sql)->fetch();
+        } 
+
         function soluongtk(){
             $sql = "SELECT COUNT(*) as soluongtk FROM user";
             return $this -> conn -> query($sql) -> fetch();
+        }
+
+        function headerCT() {
+            $sql = "SELECT * FROM sanpham JOIN binhluan ON binhluan.image_sp = sanpham.image";
+            $stmt = $this->conn->query($sql);
+            return $stmt->fetchAll();
+        }
+        function SoluongDH(){
+            $sql = "SELECT COUNT(*) as soluongDH FROM `order`";
+            return $this->conn->query($sql)->fetch();
         }
 
 }

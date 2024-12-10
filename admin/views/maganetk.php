@@ -25,7 +25,6 @@
                     <th>Phone</th>
                     <th>Adress</th>
                     <th>Actions</th>
-                    <th>Lock</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -41,7 +40,6 @@
                     <td><?= $row['phone']?></td>
                     <td><?= $row['address']?></td>
                     <td><?= $row['role']?></td>
-                    <td><button class="edit-btn" href="?act=updatetk&id=<?= $row['id_user'] ?>">Khóa tài khoản</button></td>
                     <td><a  href="?act=deletetk&id=<?= $row['id_user']?>"><button onclick="return confirm('Bạn có chắc chắn muốn xóa không?')"  class="delete-btn" >Xóa</button></a></td>
                 </tr>
             <?php

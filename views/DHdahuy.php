@@ -197,6 +197,7 @@
         <div class="thanh-ben">
             <h3>Trung tâm cá nhân</h3>
             <ul>
+            <ul>
                 <li><strong>Tài khoản của tôi</strong>
                     <ul>
                         <li><a href="?act=profile" onclick="saveClick('Thông tin của tôi')">Thông tin của tôi</a></li>
@@ -220,28 +221,38 @@
             </ul>
         </div>
         <div class="noi-dung-chinh">
-            <h2>THÔNG TIN NGƯỜI DÙNG</h2>
-            <form action="" method="post">
-                <div class="nhom-form">
-                    <label for="username">Tên đăng nhập:</label>
-                    <input type="text" id="username" name="username" value="<?= $show['username'] ?>" readonly>
-                </div>
-                <div class="nhom-form">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?= $show['email'] ?>" required>
-                </div>
-                <div class="nhom-form">
-                    <label for="phone">Số điện thoại:</label>
-                    <input type="tel" id="phone" name="phone" value="<?= $show['phone'] ?>" required>
-                </div>
-                <div class="nhom-form">
-                    <label for="address">Địa chỉ:</label>
-                    <input type="text" id="address" name="address" value="<?= $show['address'] ?>">
-                </div>
-                <div class="hanh-dong-form">
-                    <button type="submit" name="btn_update">LƯU</button>
-                </div>
-            </form>
+            <h2>ĐƠN HÀNG CỦA TÔI</h2>
+            <table class="table table-striped table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Phiên đơn hàng</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Tình Trạng</th>
+                        <th scope="col">Tổng tiền</th>
+                        <th scope="col">Ngày đặt hàng</th>
+                        <th scope="col">Cách thức thanh toán</th>
+                        <th scope="col">Chi tiết đơn hàng</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if(!empty($list_order)){ ?>
+                        <?php foreach ($list_order as $item) { ?>
+                            <?php if($item['status_order'] === 'Đã hủy'){ ?>
+                                <tr>
+                                    <td><?= $item['id'] ?></td>
+                                    <td><?= htmlspecialchars($item['username']) ?></td>
+                                    <td><?= htmlspecialchars($item['status_order']) ?></td>
+                                    <td><?= number_format($item['total_price'], 3, '.', ',') ?> ₫</td>
+                                    <td><?= htmlspecialchars($item['ngaydat'])?></td>
+                                    <td><?= htmlspecialchars($item['method_pay']) ?></td>
+                                    <td><a href="?act=chitietdonhang&id_order=<?= $item['id'] ?>" class="btn btn-primary">Xem chi tiết</a></td>
+                                </tr>
+                            <?php } ?>
+                        <?php } ?>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 

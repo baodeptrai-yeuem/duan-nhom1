@@ -1,6 +1,7 @@
 <?php
 // require_once "../admin/models/productModel.php";
-function connectDB(){
+function connectDB()
+{
     $host = "mysql:host=localhost;dbname=test;charset=utf8";
     $user = "root";
     $pass = "";
@@ -12,4 +13,3 @@ function connectDB(){
         echo "Connection failed: " . $e->getMessage();
     }
 }
-?>

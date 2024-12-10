@@ -87,7 +87,7 @@
     </style>
 </head>
 <body>
-    <?php require_once 'khung/header.php'; ?>
+<?php require_once 'khung/header.php'?>
     <div class="content-area">
         <div class="wrapper">
             <h2>Sửa sản phẩm</h2>
@@ -116,12 +116,6 @@
                     <p>Chi tiết sản phẩm</p>
                     <input type="text" name="description" value="<?= $oneProduct['description'] ?>">
                     <div class="error-message" id="description-error"></div>
-                </div>
-
-                <div class="form-group">
-                    <p>Số lượng</p>
-                    <input type="text" name="quantity" value="<?= $oneProduct['quantity'] ?>">
-                    <div class="error-message" id="quantity-error"></div>
                 </div>
 
                 <div class="form-group">

@@ -132,8 +132,6 @@
                     <th>Ảnh sp</th>
                     <th>Giá sp</th>
                     <th>Chi tiết sp</th>
-                    <th>Số lượng</th>
-                    <th>Lượt xem</th>
                     <th>Danh mục sp</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
@@ -157,8 +155,6 @@
                     <td><img src="../assets/img/<?= $rows['image'] ?>" alt=""></td>
                     <td><?= $rows['price']?></td>
                     <td><?= $rows['description'] ?></td>
-                    <td><?= $rows['quantity'] ?></td>
-                    <td><?= $rows['view'] ?></td>
                     <td><?= $rows['ten_danhmuc'] ?></td>
                     <td><a href="?act=updateSP&id=<?= $rows['id_sanpham'] ?>" class="btn btn-warning">Sửa</a></td>
                     <td>

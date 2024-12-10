@@ -14,15 +14,18 @@ body{
     margin-top: 20px;
 }
 .khu-vuc-container {
-    width: 1200px;
+    width: 1820px;
     margin-right: auto;
     padding-left: 20px;
     justify-content: flex-start;
 }
 .khu-vuc-san-pham {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+                    width: 1820px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 35px;
+                    justify-content: center;
+                    text-align: center;
 }
 
 .the-san-pham {

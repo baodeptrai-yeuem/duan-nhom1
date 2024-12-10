@@ -7,6 +7,8 @@ require_once 'model/danhmucModel.php';
         }
         function list()
         {
+            $soSP= $this->danhmucModel->SoluongSP();
+            $soDH = $this->danhmucModel->soluongDH();
             $so = $this ->danhmucModel-> soluongtk();
             $category = $this->danhmucModel->allCTGR();
             require_once 'views/DM.php';
@@ -15,13 +17,17 @@ require_once 'model/danhmucModel.php';
         function insert()
         
         {
-           
+            $soSP= $this->danhmucModel->SoluongSP();
+            $soDH = $this->danhmucModel->soluongDH();
             $so = $this ->danhmucModel-> soluongtk();
             require_once 'views/insertDM.php';
             if (isset($_POST['btn_insertCTGR'])) {
                 $CTGRname = $_POST['cate_name'];
                 if ($this->danhmucModel->insertCTGR($CTGRname)) {
-                    header('location: ?act=category');
+                    echo "<script>
+                    alert('Thêm danh mục thành công');
+                    window.location.href = '?act=category';
+                  </script>";                
                 } else {
                     echo 'insert fail';
                 }
@@ -30,6 +36,7 @@ require_once 'model/danhmucModel.php';
     
         function deleteCTGR($id)
         {
+            $soSP= $this->danhmucModel->SoluongSP();
             $so = $this ->danhmucModel-> soluongtk();
             if ($this->danhmucModel->deleteCTGR($id)) {
                 header('location:index.php?act=category');
@@ -40,6 +47,8 @@ require_once 'model/danhmucModel.php';
     
         function updateCTGR($id)
         {
+            $soSP= $this->danhmucModel->SoluongSP();
+            $soDH = $this->danhmucModel->soluongDH();
             $so = $this ->danhmucModel-> soluongtk();
             $oneCTGR = $this->danhmucModel->findCTGR($id);
             require_once 'views/updateDM.php';
@@ -47,8 +56,10 @@ require_once 'model/danhmucModel.php';
                 $id = $_POST['id'];
                 $nameCTGR = $_POST['cate_name'];
                 if ($this->danhmucModel->updateCTGR($id, $nameCTGR)) {
-                    header('location:?act=category');
-    
+                    echo "<script>
+                    alert('Sửa danh mục thành công');
+                    window.location.href = '?act=category';
+                  </script>";    
                 } else {
                     echo "lỗi";
                 }
