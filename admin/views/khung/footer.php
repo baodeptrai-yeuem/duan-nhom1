@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savani Footer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    body {
-        font-family: 'Roboto', sans-serif; 
-    }
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
     </style>
 </head>
+
 <body>
     <footer class="bg-dark text-light pt-5 pb-4">
         <div class="container "> <!-- Add container here -->
@@ -18,9 +20,9 @@
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold">Công Ty TNHH Thời Trang Quốc Tế Savani</h5>
                     <p>VP: Tòa nhà P cao đẳng FPT, Trịnh Văn Bô-Hà Nội<br>
-                    Trụ sở chính: Tòa nhà P cao đẳng FPT, Trịnh Văn Bô-Hà Nội<br>
-                    Hotline: 0368036JQK<br>
-                    Email: nhom1duan1@gmail.com</p>
+                        Trụ sở chính: Tòa nhà P cao đẳng FPT, Trịnh Văn Bô-Hà Nội<br>
+                        Hotline: 0368036JQK<br>
+                        Email: nhom1duan1@gmail.com</p>
                 </div>
 
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -50,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <hr class="mb-4">
 
             <div class="row align-items-center">
@@ -88,4 +90,5 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage Header</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <style>
-
+<style>
     .khung {
         display: flex;
         align-items: center;
@@ -20,7 +11,9 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .trai, .func, .icon-container {
+    .trai,
+    .func,
+    .icon-container {
         display: flex;
         align-items: center;
     }
@@ -109,10 +102,8 @@
     .dropdown-item:hover {
         background-color: #f0f0f0;
     }
-    </style>
-</head>
+</style>
 
-<body>
 <div class="khung">
     <div class="trai">
         <a href="#sideMenuMobile" class="toggle-menu-side-bar">
@@ -126,17 +117,17 @@
             <img src="assets/img/logo.jpg" alt="Savani">
         </a>
     </div>
-    
+
     <div class="menu-container">
         <ul id="megamenu" class="menu selected">
             <li class="li1 level_0"><a href="?act/" class="menu_item_a_0">Trang chủ</a></li>
-            <li class="li2 level_0"><a href="#" class="menu_item_a_0">Áo Sơ mi</a></li>
-            <li class="li3 level_0"><a href="#" class="menu_item_a_0">Áo Pô lô</a></li>
-            <li class="li4 level_0"><a href="#" class="menu_item_a_0">Áo thun</a></li>
+            <li class="li2 level_0"><a href="?act=DMspSM" class="menu_item_a_0">Áo Sơ mi</a></li>
+            <li class="li3 level_0"><a href="?act=DMspPL" class="menu_item_a_0">Áo Pô lô</a></li>
+            <li class="li4 level_0"><a href="?act=DMspAT" class="menu_item_a_0">Áo thun</a></li>
             <li class="li331 level_0"><a href="#" class="menu_item_a_0">Hướng dẫn chọn size</a></li>
         </ul>
     </div>
-    
+
     <div class="icon-container">
         <div class="search-bar" id="searchBar">
             <form action="?act=timkiem" method="POST">
@@ -145,9 +136,9 @@
             </form>
         </div>
         <img src="https://img.icons8.com/ios-glyphs/30/000000/search.png" alt="Search" class="search-icon" id="searchIcon">
-        
+
         <div class="dropdown">
-            <?php if(isset($_SESSION['username'])){ ?>
+            <?php if (isset($_SESSION['username'])) { ?>
                 <div class="dropdown-toggle" id="userIcon">
                     <img src="assets/img/user.png" width="25px" height="30px" alt="User">
                 </div>
@@ -163,46 +154,58 @@
                     <?php if ($_SESSION['role'] == 1) { ?>
                         <a href="admin" class="dropdown-item">Vào trang admin</a>
                     <?php } ?>
-                    <a class="dropdown-item" href="#">Giỏ Hàng</a>
-                    <a class="dropdown-item" href="?act=dangxuat">Đăng xuất</a>
+                    <a class="dropdown-item" href="?act=lichsudonhang">Đơn hàng của bạn</a>
+                    <a class="dropdown-item" id="dangxuat" href="?act=dangxuat">Đăng xuất</a>
                 <?php } else { ?>
                     <a href="?act=dangnhap" class="dropdown-item">Đăng nhập</a>
                 <?php } ?>
             </div>
         </div>
-        <a href="#" class="nav-link">
+        <a href="index.php?act=giohang" class="nav-link">
             <img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart.png" alt="Cart">
+            <span id="total_cart" style="color:red">0</span>
         </a>
     </div>
 </div>
 
-    <script>
-        document.getElementById('searchIcon').addEventListener('click', function () {
-            var searchBar = document.getElementById('searchBar');
-            if (searchBar.classList.contains('expanded')) {
-                searchBar.classList.remove('expanded');
-            } else {
-                searchBar.classList.add('expanded');
-            }
-        });
+<script>
+    document.getElementById('dangxuat')
 
-        document.getElementById('userIcon').addEventListener('click', function () {
-            var userMenu = document.getElementById('userMenu');
-            if (userMenu.style.display === 'block') {
-                userMenu.style.display = 'none';
-            } else {
-                userMenu.style.display = 'block';
-            }
-        });
+    document.getElementById('searchIcon').addEventListener('click', function() {
+        var searchBar = document.getElementById('searchBar');
+        if (searchBar.classList.contains('expanded')) {
+            searchBar.classList.remove('expanded');
+        } else {
+            searchBar.classList.add('expanded');
+        }
+    });
 
-        document.addEventListener('click', function (event) {
-            var userIcon = document.getElementById('userIcon');
-            var userMenu = document.getElementById('userMenu');
-            if (!userIcon.contains(event.target) && !userMenu.contains(event.target)) {
-                userMenu.style.display = 'none';
-            }
-        });
-    </script>
-</body>
+    document.getElementById('userIcon').addEventListener('click', function() {
+        var userMenu = document.getElementById('userMenu');
+        if (userMenu.style.display === 'block') {
+            userMenu.style.display = 'none';
+        } else {
+            userMenu.style.display = 'block';
+        }
+    });
 
-</html>
+    document.addEventListener('click', function(event) {
+        var userIcon = document.getElementById('userIcon');
+        var userMenu = document.getElementById('userMenu');
+        if (!userIcon.contains(event.target) && !userMenu.contains(event.target)) {
+            userMenu.style.display = 'none';
+        }
+    });
+
+
+    function getCartItemsFromLocalStorage() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        return cartItems.length; // Return the number of items
+    }
+
+    const total_cart = getCartItemsFromLocalStorage();
+
+    if (total_cart > 0) {
+        document.getElementById('total_cart').innerHTML = total_cart;
+    }
+</script>

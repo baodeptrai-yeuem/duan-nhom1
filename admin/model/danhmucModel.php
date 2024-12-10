@@ -55,6 +55,14 @@
         $sql = "SELECT COUNT(*) as soluongtk FROM user";
         return $this -> conn -> query($sql) -> fetch();
     }
+    function SoluongDH(){
+        $sql = "SELECT COUNT(*) as soluongDH FROM `order`";
+        return $this->conn->query($sql)->fetch();
+    }
+    function SoluongSP(){
+        $sql = "SELECT COUNT(*) as soluongSP FROM `sanpham`";
+        return $this->conn->query($sql)->fetch();
+    }
 
 }
 ?>

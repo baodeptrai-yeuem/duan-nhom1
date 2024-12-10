@@ -1,12 +1,26 @@
 <?php
-class dashboardController{
-    public $trangchu;
-    function __construct(){
-        $this-> taikhoanModel= new taikhoanModel();
+class thongkeController
+{
+    public $thongke;
+
+    function __construct()
+    {
+        $this->thongke = new thongkeModel();
     }
-    function dashboard(){
-        $so = $this -> taikhoanModel -> soluongtk();
-        require_once 'views/trangchu.php';
+
+    function statistics(){
+        $soSP= $this->thongke->SoluongSP();
+        $soDH = $this->thongke->soluongDH();
+        $so = $this -> thongke -> soluongtk();
+        if(isset($_POST['btn_statistics'])){
+            $start_date = $_POST['start_date'];
+            $end_date = $_POST['end_date'];
+            $data = [];
+            if($start_date && $end_date){
+                $data = $this->thongke->statistics($start_date,$end_date);
+            }
+            
+        }
+        require_once 'views/trangchu.php';    
     }
 }
-?>
